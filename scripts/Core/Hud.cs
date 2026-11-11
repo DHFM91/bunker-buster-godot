@@ -80,7 +80,7 @@ namespace BunkerBuster
             style.SetContentMarginAll(40);
             ((PanelContainer)overlay).AddThemeStyleboxOverride("panel", style);
             overlay.SetAnchorsPreset(Control.LayoutPreset.FullRect);
-            var box = new VBoxContainer { Alignment = BoxContainer.AlignmentMode.Center };
+            var box = new VBoxContainer { Alignment = BoxContainer.AlignmentMode.Center, MouseFilter = Control.MouseFilterEnum.Ignore };
             box.AddThemeConstantOverride("separation", 18);
             overlay.AddChild(box);
             overlayTitle = MakeLabel(54, HorizontalAlignment.Center);

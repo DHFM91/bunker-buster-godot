@@ -85,8 +85,8 @@ namespace BunkerBuster
             string moodId = level.Theme.Moods[rng.Next(level.Theme.Moods.Length)];
             var mood = Mood.Get(moodId);
             double R(double a, double b) => a + rng.NextDouble() * (b - a);
-            Color Sky(double[] v) => Mood.Hsl(v[0] + R(-12, 12), v[1] * R(.8, 1.2), v[2] * R(.92, 1.06));
-            Color skyLo = Sky(mood.Lo), skyHi = Sky(mood.Hi);
+            Color SkyShade(double[] v) => Mood.Hsl(v[0] + R(-12, 12), v[1] * R(.8, 1.2), v[2] * R(.92, 1.06));
+            Color skyLo = SkyShade(mood.Lo), skyHi = SkyShade(mood.Hi);
             double el = R(mood.ElevMin, mood.ElevMax) * Math.PI / 180, az = R(0, Math.PI * 2);
             var sunDir = new Vector3((float)(Math.Cos(el) * Math.Sin(az)), (float)Math.Sin(el), (float)(Math.Cos(el) * Math.Cos(az)));
             sun.Transform = new Transform3D(Basis.LookingAt(-sunDir, Vector3.Up), Vector3.Zero);

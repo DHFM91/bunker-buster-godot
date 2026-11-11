@@ -116,6 +116,7 @@ namespace BunkerBuster
             AlertLevel = Undetected; AlertTimer = 0; lastKnown = null; reinforced = false; report = null;
             chaseField = null; chaseTimer = 0; stepTimer = 0;
             if (theme.StartOnCaution) { AlertLevel = Caution; AlertTimer = 60; }
+            UpdateSprites();   // place the sprites now so nothing sits at the origin during the briefing
         }
 
         Guard Make(double x, double z, int cell, double yaw)
