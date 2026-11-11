@@ -9,9 +9,9 @@ namespace BunkerBuster
 
     /// <summary>JS scoreRun() return value.</summary>
     public sealed record ScoreResult(
-        IReadOnlyList<ScoreLine> Lines, int Subtotal, int Damage, int Penalty, int Total, double Time, bool Won);
+        IReadOnlyList<ScoreLine> Lines, int Subtotal, int Damage, int Cut, int Penalty, double Multiplier, int Base, int Total, double Time, bool Won);
 
-    /// <summary>Port of SCORE, scoreRun and fmtTime from bunker-buster.js.</summary>
+    /// <summary>Port of SCORE, scoreRun (v17 rules) and fmtTime from bunker-buster.js.</summary>
     public static class ScoreCalculator
     {
         public const int Extract = 5000;
@@ -27,7 +27,7 @@ namespace BunkerBuster
         /// JS scoreRun(won) with its inputs made explicit: soldiersDowned = guards with hp 0,
         /// concreteDestroyed = run.blocks, hpRemaining = player.hp, runSeconds = run.time.
         /// </summary>
-        public static ScoreResult Calculate(bool won, double runSeconds, int soldiersDowned, int concreteDestroyed, int hpRemaining)
+        public static ScoreResult Calculate(bool won, double runSeconds, int soldiersDowned, int concreteDestroyed, int hpRemaining, int level = 1)
         {
             int damage = 100 - hpRemaining;
             var lines = new List<ScoreLine>();
@@ -47,8 +47,13 @@ namespace BunkerBuster
 
             int subtotal = 0;
             foreach (var l in lines) subtotal += l.Points;
-            int penalty = JsRound(subtotal * (double)Math.Min(100, damage) / 100);
-            return new ScoreResult(lines, subtotal, damage, penalty, Math.Max(0, subtotal - penalty), runSeconds, won);
+            // damage costs half a percent per HP lost; dying costs a flat 50%, so what you did on the way down still counts
+            int cut = won ? Math.Min(50, JsRound(damage * .5)) : 50;
+            int penalty = JsRound(subtotal * (double)cut / 100);
+            // deeper levels are worth more: +10% per level after the first
+            double mult = 1 + .1 * (level - 1);
+            int baseScore = Math.Max(0, subtotal - penalty);
+            return new ScoreResult(lines, subtotal, damage, cut, penalty, mult, baseScore, JsRound(baseScore * mult), runSeconds, won);
         }
 
         /// <summary>JS fmtTime(t): "m:ss.ss".</summary>

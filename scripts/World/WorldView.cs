@@ -20,6 +20,7 @@ namespace BunkerBuster
         public VoxelWorld World;
         public Level Level;
         Material[] materials;
+        public Material[] Materials => materials;
         MeshInstance3D[] chunks;
         Node3D lampRoot;
         DirectionalLight3D sun;

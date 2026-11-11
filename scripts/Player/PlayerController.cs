@@ -21,6 +21,7 @@ namespace BunkerBuster
         /// <summary>Distance walked this frame (guards hear footsteps from it later).</summary>
         public double Travel;
         double stridePhase;
+        public double StridePhase => stridePhase;
 
         public override void _Ready()
         {
