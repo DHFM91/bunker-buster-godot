@@ -1,0 +1,8719 @@
+[
+ {
+  "name": "seed 1 default",
+  "seed": 1,
+  "opts": {},
+  "plan": {
+   "passages": [
+    [
+     3,
+     4
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     5,
+     12
+    ],
+    [
+     12,
+     11
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     18,
+     17
+    ],
+    [
+     17,
+     16
+    ],
+    [
+     16,
+     9
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     8,
+     7
+    ],
+    [
+     7,
+     0
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     7,
+     14
+    ],
+    [
+     14,
+     21
+    ],
+    [
+     21,
+     22
+    ],
+    [
+     22,
+     23
+    ],
+    [
+     23,
+     30
+    ],
+    [
+     30,
+     29
+    ],
+    [
+     29,
+     36
+    ],
+    [
+     36,
+     35
+    ],
+    [
+     35,
+     42
+    ],
+    [
+     42,
+     43
+    ],
+    [
+     43,
+     50
+    ],
+    [
+     50,
+     51
+    ],
+    [
+     51,
+     52
+    ],
+    [
+     52,
+     45
+    ],
+    [
+     45,
+     46
+    ],
+    [
+     46,
+     39
+    ],
+    [
+     39,
+     38
+    ],
+    [
+     38,
+     37
+    ],
+    [
+     37,
+     44
+    ],
+    [
+     38,
+     31
+    ],
+    [
+     31,
+     24
+    ],
+    [
+     24,
+     25
+    ],
+    [
+     25,
+     26
+    ],
+    [
+     26,
+     19
+    ],
+    [
+     19,
+     20
+    ],
+    [
+     20,
+     27
+    ],
+    [
+     27,
+     34
+    ],
+    [
+     34,
+     33
+    ],
+    [
+     33,
+     32
+    ],
+    [
+     33,
+     40
+    ],
+    [
+     40,
+     41
+    ],
+    [
+     41,
+     48
+    ],
+    [
+     48,
+     55
+    ],
+    [
+     55,
+     54
+    ],
+    [
+     54,
+     53
+    ],
+    [
+     53,
+     60
+    ],
+    [
+     60,
+     61
+    ],
+    [
+     61,
+     68
+    ],
+    [
+     68,
+     69
+    ],
+    [
+     69,
+     62
+    ],
+    [
+     68,
+     67
+    ],
+    [
+     67,
+     66
+    ],
+    [
+     66,
+     59
+    ],
+    [
+     59,
+     58
+    ],
+    [
+     58,
+     65
+    ],
+    [
+     65,
+     64
+    ],
+    [
+     64,
+     63
+    ],
+    [
+     63,
+     56
+    ],
+    [
+     56,
+     57
+    ],
+    [
+     56,
+     49
+    ],
+    [
+     54,
+     47
+    ],
+    [
+     20,
+     13
+    ],
+    [
+     13,
+     6
+    ],
+    [
+     35,
+     28
+    ],
+    [
+     22,
+     15
+    ],
+    [
+     9,
+     10
+    ],
+    [
+     21,
+     28
+    ],
+    [
+     17,
+     18
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     68,
+     69
+    ],
+    [
+     22,
+     23
+    ],
+    [
+     9,
+     16
+    ],
+    [
+     10,
+     17
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     4,
+     5
+    ]
+   ],
+   "spaces": [
+    {
+     "kind": "foyer",
+     "col": 2,
+     "row": 0,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "yard",
+     "col": 5,
+     "row": 4,
+     "w": 2,
+     "h": 3,
+     "along": "x",
+     "shiftBits": 3915141082,
+     "cover": 1
+    },
+    {
+     "kind": "yard",
+     "col": 0,
+     "row": 4,
+     "w": 2,
+     "h": 3,
+     "along": "z",
+     "shiftBits": 3708547612,
+     "cover": 2
+    }
+   ],
+   "owner": [
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    2,
+    2,
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    2,
+    2,
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    2,
+    2,
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "barred": [],
+   "vents": [
+    [
+     60,
+     67
+    ],
+    [
+     59,
+     60
+    ],
+    [
+     30,
+     37
+    ]
+   ],
+   "reinforced": [
+    [
+     1,
+     8
+    ],
+    [
+     12,
+     19
+    ],
+    [
+     22,
+     29
+    ],
+    [
+     25,
+     32
+    ],
+    [
+     43,
+     44
+    ],
+    [
+     44,
+     45
+    ],
+    [
+     65,
+     66
+    ]
+   ],
+   "windows": [
+    [
+     12,
+     19,
+     false
+    ],
+    [
+     23,
+     24,
+     false
+    ],
+    [
+     31,
+     32,
+     true
+    ],
+    [
+     36,
+     37,
+     false
+    ],
+    [
+     42,
+     49,
+     true
+    ],
+    [
+     44,
+     51,
+     false
+    ],
+    [
+     51,
+     58,
+     false
+    ],
+    [
+     52,
+     53,
+     false
+    ],
+    [
+     52,
+     59,
+     false
+    ],
+    [
+     55,
+     62,
+     false
+    ]
+   ],
+   "posts": [
+    {
+     "cell": 17,
+     "facing": 0
+    },
+    {
+     "cell": 45,
+     "facing": 1
+    },
+    {
+     "cell": 31,
+     "facing": 1
+    }
+   ],
+   "props": [
+    {
+     "type": "barrels",
+     "cell": 0,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 5,
+     "side": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 5,
+     "side": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 7,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 13,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 14,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 14,
+     "corner": 1,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 15,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 18,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 20,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 21,
+     "corner": 1,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 22,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 23,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 25,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 26,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 26,
+     "corner": 1,
+     "fuel": true
+    },
+    {
+     "type": "crates",
+     "cell": 27,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 29,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 30,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 30,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 32,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 32,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 33,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 33,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 34,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 34,
+     "corner": 1,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 36,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 38,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 39,
+     "side": 3
+    },
+    {
+     "type": "sandbags",
+     "cell": 40,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 43,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 44,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 44,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 46,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 46,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 47,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 47,
+     "corner": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 48,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 50,
+     "side": 3
+    },
+    {
+     "type": "sandbags",
+     "cell": 50,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 51,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 53,
+     "side": 2
+    },
+    {
+     "type": "sandbags",
+     "cell": 53,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 54,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 55,
+     "side": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 55,
+     "corner": 0,
+     "fuel": true
+    },
+    {
+     "type": "barrels",
+     "cell": 56,
+     "corner": 3,
+     "fuel": true
+    },
+    {
+     "type": "barrels",
+     "cell": 57,
+     "corner": 1,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 58,
+     "side": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 58,
+     "corner": 0,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 60,
+     "side": 3
+    },
+    {
+     "type": "sandbags",
+     "cell": 60,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 61,
+     "side": 2
+    },
+    {
+     "type": "sandbags",
+     "cell": 62,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 63,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 66,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 67,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 67,
+     "corner": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 68,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 69,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 69,
+     "corner": 1,
+     "fuel": false
+    }
+   ],
+   "reach": 27
+  }
+ },
+ {
+  "name": "seed 12345 default",
+  "seed": 12345,
+  "opts": {},
+  "plan": {
+   "passages": [
+    [
+     3,
+     2
+    ],
+    [
+     2,
+     9
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     7
+    ],
+    [
+     7,
+     14
+    ],
+    [
+     14,
+     21
+    ],
+    [
+     21,
+     28
+    ],
+    [
+     28,
+     35
+    ],
+    [
+     35,
+     36
+    ],
+    [
+     36,
+     43
+    ],
+    [
+     43,
+     44
+    ],
+    [
+     44,
+     45
+    ],
+    [
+     45,
+     38
+    ],
+    [
+     38,
+     37
+    ],
+    [
+     37,
+     30
+    ],
+    [
+     30,
+     23
+    ],
+    [
+     23,
+     24
+    ],
+    [
+     24,
+     17
+    ],
+    [
+     17,
+     16
+    ],
+    [
+     16,
+     15
+    ],
+    [
+     15,
+     22
+    ],
+    [
+     22,
+     29
+    ],
+    [
+     17,
+     10
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     18,
+     25
+    ],
+    [
+     25,
+     26
+    ],
+    [
+     26,
+     19
+    ],
+    [
+     19,
+     12
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     20
+    ],
+    [
+     20,
+     27
+    ],
+    [
+     27,
+     34
+    ],
+    [
+     34,
+     41
+    ],
+    [
+     41,
+     48
+    ],
+    [
+     48,
+     47
+    ],
+    [
+     47,
+     40
+    ],
+    [
+     40,
+     39
+    ],
+    [
+     39,
+     46
+    ],
+    [
+     46,
+     53
+    ],
+    [
+     53,
+     52
+    ],
+    [
+     52,
+     51
+    ],
+    [
+     51,
+     50
+    ],
+    [
+     50,
+     49
+    ],
+    [
+     49,
+     42
+    ],
+    [
+     49,
+     56
+    ],
+    [
+     56,
+     57
+    ],
+    [
+     57,
+     58
+    ],
+    [
+     58,
+     59
+    ],
+    [
+     59,
+     60
+    ],
+    [
+     60,
+     67
+    ],
+    [
+     67,
+     66
+    ],
+    [
+     66,
+     65
+    ],
+    [
+     65,
+     64
+    ],
+    [
+     64,
+     63
+    ],
+    [
+     67,
+     68
+    ],
+    [
+     68,
+     69
+    ],
+    [
+     69,
+     62
+    ],
+    [
+     62,
+     61
+    ],
+    [
+     61,
+     54
+    ],
+    [
+     54,
+     55
+    ],
+    [
+     39,
+     32
+    ],
+    [
+     32,
+     33
+    ],
+    [
+     32,
+     31
+    ],
+    [
+     13,
+     6
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     33,
+     34
+    ],
+    [
+     24,
+     25
+    ],
+    [
+     45,
+     52
+    ],
+    [
+     68,
+     69
+    ],
+    [
+     54,
+     61
+    ],
+    [
+     9,
+     16
+    ],
+    [
+     10,
+     17
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     4,
+     5
+    ]
+   ],
+   "spaces": [
+    {
+     "kind": "foyer",
+     "col": 2,
+     "row": 0,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "atrium",
+     "col": 2,
+     "row": 4,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "yard",
+     "col": 5,
+     "row": 3,
+     "w": 2,
+     "h": 2,
+     "along": "z",
+     "shiftBits": 2966171923,
+     "cover": 2
+    }
+   ],
+   "owner": [
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    2,
+    2,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "barred": [],
+   "vents": [
+    [
+     40,
+     41
+    ],
+    [
+     37,
+     44
+    ],
+    [
+     28,
+     29
+    ]
+   ],
+   "reinforced": [
+    [
+     8,
+     15
+    ],
+    [
+     17,
+     18
+    ],
+    [
+     21,
+     22
+    ],
+    [
+     33,
+     40
+    ],
+    [
+     42,
+     43
+    ],
+    [
+     44,
+     51
+    ],
+    [
+     48,
+     55
+    ],
+    [
+     53,
+     54
+    ],
+    [
+     53,
+     60
+    ],
+    [
+     57,
+     64
+    ],
+    [
+     59,
+     66
+    ],
+    [
+     61,
+     68
+    ]
+   ],
+   "windows": [
+    [
+     24,
+     31,
+     true
+    ],
+    [
+     35,
+     42,
+     false
+    ],
+    [
+     53,
+     60,
+     false
+    ]
+   ],
+   "posts": [
+    {
+     "cell": 17,
+     "facing": 0
+    },
+    {
+     "cell": 61,
+     "facing": 1
+    },
+    {
+     "cell": 63,
+     "facing": 0
+    }
+   ],
+   "props": [
+    {
+     "type": "lamp",
+     "cell": 0,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 1,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 1,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 5,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 5,
+     "corner": 1,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 6,
+     "side": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 6,
+     "corner": 1,
+     "fuel": true
+    },
+    {
+     "type": "sandbags",
+     "cell": 7,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 8,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 12,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 13,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 13,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 14,
+     "corner": 2
+    },
+    {
+     "type": "crates",
+     "cell": 15,
+     "corner": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 18,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 19,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 20,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 20,
+     "corner": 0,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 22,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 23,
+     "corner": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 24,
+     "corner": 1,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 25,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 25,
+     "corner": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 26,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "sandbags",
+     "cell": 27,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 28,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 29,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 29,
+     "corner": 1
+    },
+    {
+     "type": "crates",
+     "cell": 30,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 31,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 32,
+     "corner": 2
+    },
+    {
+     "type": "crates",
+     "cell": 33,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 34,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 35,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 36,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 37,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 39,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 40,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 40,
+     "corner": 0,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 41,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 41,
+     "corner": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 43,
+     "corner": 0,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 44,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 44,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 46,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 49,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 49,
+     "corner": 1,
+     "fuel": true
+    },
+    {
+     "type": "barrels",
+     "cell": 50,
+     "corner": 3,
+     "fuel": true
+    },
+    {
+     "type": "crates",
+     "cell": 51,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 52,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 52,
+     "corner": 2
+    },
+    {
+     "type": "sandbags",
+     "cell": 53,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 54,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 54,
+     "corner": 3
+    },
+    {
+     "type": "crates",
+     "cell": 55,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 56,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 56,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 57,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 57,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 58,
+     "side": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 59,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 60,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 68,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 68,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 69,
+     "side": 0
+    }
+   ],
+   "reach": 19
+  }
+ },
+ {
+  "name": "seed 777 default",
+  "seed": 777,
+  "opts": {},
+  "plan": {
+   "passages": [
+    [
+     3,
+     2
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     7
+    ],
+    [
+     7,
+     14
+    ],
+    [
+     14,
+     15
+    ],
+    [
+     15,
+     22
+    ],
+    [
+     22,
+     23
+    ],
+    [
+     23,
+     16
+    ],
+    [
+     16,
+     17
+    ],
+    [
+     17,
+     24
+    ],
+    [
+     24,
+     25
+    ],
+    [
+     25,
+     18
+    ],
+    [
+     18,
+     11
+    ],
+    [
+     11,
+     10
+    ],
+    [
+     10,
+     9
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     20
+    ],
+    [
+     20,
+     19
+    ],
+    [
+     19,
+     26
+    ],
+    [
+     26,
+     27
+    ],
+    [
+     27,
+     34
+    ],
+    [
+     34,
+     33
+    ],
+    [
+     33,
+     40
+    ],
+    [
+     40,
+     39
+    ],
+    [
+     39,
+     46
+    ],
+    [
+     46,
+     45
+    ],
+    [
+     45,
+     38
+    ],
+    [
+     38,
+     31
+    ],
+    [
+     31,
+     32
+    ],
+    [
+     31,
+     30
+    ],
+    [
+     30,
+     29
+    ],
+    [
+     29,
+     36
+    ],
+    [
+     36,
+     43
+    ],
+    [
+     43,
+     44
+    ],
+    [
+     44,
+     37
+    ],
+    [
+     44,
+     51
+    ],
+    [
+     51,
+     52
+    ],
+    [
+     52,
+     53
+    ],
+    [
+     53,
+     54
+    ],
+    [
+     54,
+     55
+    ],
+    [
+     55,
+     62
+    ],
+    [
+     62,
+     69
+    ],
+    [
+     69,
+     68
+    ],
+    [
+     68,
+     61
+    ],
+    [
+     61,
+     60
+    ],
+    [
+     60,
+     67
+    ],
+    [
+     67,
+     66
+    ],
+    [
+     66,
+     65
+    ],
+    [
+     65,
+     64
+    ],
+    [
+     64,
+     57
+    ],
+    [
+     57,
+     50
+    ],
+    [
+     50,
+     49
+    ],
+    [
+     49,
+     42
+    ],
+    [
+     42,
+     35
+    ],
+    [
+     35,
+     28
+    ],
+    [
+     28,
+     21
+    ],
+    [
+     49,
+     56
+    ],
+    [
+     56,
+     63
+    ],
+    [
+     57,
+     58
+    ],
+    [
+     58,
+     59
+    ],
+    [
+     55,
+     48
+    ],
+    [
+     48,
+     41
+    ],
+    [
+     48,
+     47
+    ],
+    [
+     13,
+     6
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     17,
+     24
+    ],
+    [
+     42,
+     49
+    ],
+    [
+     16,
+     17
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     36,
+     43
+    ],
+    [
+     13,
+     20
+    ],
+    [
+     9,
+     16
+    ],
+    [
+     10,
+     17
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     4,
+     5
+    ]
+   ],
+   "spaces": [
+    {
+     "kind": "foyer",
+     "col": 2,
+     "row": 0,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "atrium",
+     "col": 2,
+     "row": 4,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "yard",
+     "col": 0,
+     "row": 4,
+     "w": 2,
+     "h": 2,
+     "along": "z",
+     "shiftBits": 3128144589,
+     "cover": 3
+    }
+   ],
+   "owner": [
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    2,
+    2,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    2,
+    2,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "barred": [],
+   "vents": [
+    [
+     17,
+     18
+    ],
+    [
+     5,
+     12
+    ],
+    [
+     7,
+     8
+    ]
+   ],
+   "reinforced": [
+    [
+     1,
+     8
+    ],
+    [
+     14,
+     21
+    ],
+    [
+     24,
+     31
+    ],
+    [
+     32,
+     33
+    ],
+    [
+     42,
+     43
+    ],
+    [
+     52,
+     59
+    ],
+    [
+     53,
+     60
+    ],
+    [
+     54,
+     61
+    ],
+    [
+     58,
+     65
+    ],
+    [
+     59,
+     66
+    ]
+   ],
+   "windows": [
+    [
+     8,
+     15,
+     false
+    ],
+    [
+     23,
+     24,
+     true
+    ],
+    [
+     32,
+     33,
+     true
+    ],
+    [
+     40,
+     41,
+     true
+    ],
+    [
+     46,
+     47,
+     false
+    ],
+    [
+     46,
+     53,
+     true
+    ],
+    [
+     47,
+     54,
+     true
+    ],
+    [
+     51,
+     58,
+     true
+    ],
+    [
+     61,
+     62,
+     true
+    ]
+   ],
+   "posts": [
+    {
+     "cell": 17,
+     "facing": 0
+    },
+    {
+     "cell": 45,
+     "facing": 0
+    },
+    {
+     "cell": 49,
+     "facing": 0
+    }
+   ],
+   "props": [
+    {
+     "type": "crates",
+     "cell": 0,
+     "corner": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 1,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 5,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 6,
+     "side": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 6,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 7,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 8,
+     "side": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 8,
+     "corner": 0,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 12,
+     "corner": 2
+    },
+    {
+     "type": "sandbags",
+     "cell": 13,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 14,
+     "corner": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 15,
+     "corner": 3,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 16,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 19,
+     "side": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 20,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 22,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 25,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 27,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 28,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 28,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 29,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 29,
+     "corner": 1,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 30,
+     "side": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 30,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 31,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 32,
+     "side": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 33,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 34,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 34,
+     "corner": 2,
+     "fuel": true
+    },
+    {
+     "type": "barrels",
+     "cell": 35,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 36,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 36,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 37,
+     "side": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 37,
+     "corner": 1,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 38,
+     "side": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 39,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 40,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 40,
+     "corner": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 41,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 42,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 42,
+     "corner": 3
+    },
+    {
+     "type": "crates",
+     "cell": 43,
+     "corner": 0
+    },
+    {
+     "type": "sandbags",
+     "cell": 44,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 46,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 47,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 47,
+     "corner": 2,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 48,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 50,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 50,
+     "corner": 3,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 51,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 51,
+     "corner": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 53,
+     "corner": 0,
+     "fuel": true
+    },
+    {
+     "type": "crates",
+     "cell": 54,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 56,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 56,
+     "corner": 2
+    },
+    {
+     "type": "crates",
+     "cell": 57,
+     "corner": 3
+    },
+    {
+     "type": "crates",
+     "cell": 58,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 59,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 60,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 60,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 61,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 61,
+     "corner": 3,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 62,
+     "side": 0
+    },
+    {
+     "type": "sandbags",
+     "cell": 62,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 64,
+     "side": 2
+    },
+    {
+     "type": "sandbags",
+     "cell": 64,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 65,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 67,
+     "corner": 3
+    },
+    {
+     "type": "crates",
+     "cell": 68,
+     "corner": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 69,
+     "corner": 2,
+     "fuel": true
+    }
+   ],
+   "reach": 25
+  }
+ },
+ {
+  "name": "seed 2026 default",
+  "seed": 2026,
+  "opts": {},
+  "plan": {
+   "passages": [
+    [
+     3,
+     10
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     18,
+     19
+    ],
+    [
+     19,
+     12
+    ],
+    [
+     12,
+     5
+    ],
+    [
+     5,
+     6
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     13,
+     20
+    ],
+    [
+     20,
+     27
+    ],
+    [
+     27,
+     34
+    ],
+    [
+     34,
+     33
+    ],
+    [
+     33,
+     26
+    ],
+    [
+     26,
+     25
+    ],
+    [
+     25,
+     32
+    ],
+    [
+     32,
+     31
+    ],
+    [
+     31,
+     24
+    ],
+    [
+     24,
+     23
+    ],
+    [
+     23,
+     22
+    ],
+    [
+     22,
+     29
+    ],
+    [
+     29,
+     36
+    ],
+    [
+     36,
+     35
+    ],
+    [
+     35,
+     42
+    ],
+    [
+     42,
+     49
+    ],
+    [
+     49,
+     50
+    ],
+    [
+     50,
+     57
+    ],
+    [
+     57,
+     56
+    ],
+    [
+     56,
+     63
+    ],
+    [
+     63,
+     64
+    ],
+    [
+     64,
+     65
+    ],
+    [
+     65,
+     58
+    ],
+    [
+     58,
+     59
+    ],
+    [
+     59,
+     52
+    ],
+    [
+     52,
+     45
+    ],
+    [
+     45,
+     44
+    ],
+    [
+     44,
+     51
+    ],
+    [
+     44,
+     43
+    ],
+    [
+     44,
+     37
+    ],
+    [
+     37,
+     38
+    ],
+    [
+     38,
+     39
+    ],
+    [
+     39,
+     46
+    ],
+    [
+     46,
+     53
+    ],
+    [
+     53,
+     54
+    ],
+    [
+     54,
+     47
+    ],
+    [
+     47,
+     48
+    ],
+    [
+     48,
+     41
+    ],
+    [
+     41,
+     40
+    ],
+    [
+     48,
+     55
+    ],
+    [
+     55,
+     62
+    ],
+    [
+     62,
+     61
+    ],
+    [
+     61,
+     68
+    ],
+    [
+     68,
+     69
+    ],
+    [
+     68,
+     67
+    ],
+    [
+     67,
+     60
+    ],
+    [
+     67,
+     66
+    ],
+    [
+     37,
+     30
+    ],
+    [
+     35,
+     28
+    ],
+    [
+     28,
+     21
+    ],
+    [
+     21,
+     14
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     9
+    ],
+    [
+     9,
+     16
+    ],
+    [
+     16,
+     15
+    ],
+    [
+     16,
+     17
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     30,
+     31
+    ],
+    [
+     3,
+     10
+    ],
+    [
+     36,
+     43
+    ],
+    [
+     9,
+     16
+    ],
+    [
+     10,
+     17
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     4,
+     5
+    ]
+   ],
+   "spaces": [
+    {
+     "kind": "foyer",
+     "col": 2,
+     "row": 0,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "atrium",
+     "col": 2,
+     "row": 4,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "yard",
+     "col": 0,
+     "row": 6,
+     "w": 3,
+     "h": 2,
+     "along": "z",
+     "shiftBits": 3898508735,
+     "cover": 2
+    },
+    {
+     "kind": "hall",
+     "col": 3,
+     "row": 6,
+     "w": 4,
+     "h": 1
+    }
+   ],
+   "owner": [
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    3,
+    2,
+    2,
+    2,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "barred": [],
+   "vents": [
+    [
+     8,
+     15
+    ],
+    [
+     24,
+     25
+    ],
+    [
+     14,
+     15
+    ]
+   ],
+   "reinforced": [
+    [
+     12,
+     13
+    ],
+    [
+     29,
+     30
+    ],
+    [
+     32,
+     33
+    ],
+    [
+     36,
+     37
+    ],
+    [
+     49,
+     56
+    ],
+    [
+     59,
+     66
+    ],
+    [
+     62,
+     69
+    ],
+    [
+     65,
+     66
+    ]
+   ],
+   "windows": [
+    [
+     28,
+     29,
+     true
+    ],
+    [
+     38,
+     45,
+     false
+    ],
+    [
+     62,
+     69,
+     false
+    ]
+   ],
+   "posts": [
+    {
+     "cell": 17,
+     "facing": 0
+    },
+    {
+     "cell": 34,
+     "facing": 2
+    },
+    {
+     "cell": 25,
+     "facing": 3
+    }
+   ],
+   "props": [
+    {
+     "type": "lamp",
+     "cell": 0,
+     "side": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 1,
+     "corner": 3,
+     "fuel": true
+    },
+    {
+     "type": "crates",
+     "cell": 6,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 8,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 12,
+     "side": 2
+    },
+    {
+     "type": "sandbags",
+     "cell": 13,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 14,
+     "corner": 0
+    },
+    {
+     "type": "crates",
+     "cell": 15,
+     "corner": 0
+    },
+    {
+     "type": "crates",
+     "cell": 16,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 18,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 19,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 20,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 21,
+     "side": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 21,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 22,
+     "corner": 0
+    },
+    {
+     "type": "crates",
+     "cell": 24,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 26,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 27,
+     "corner": 1
+    },
+    {
+     "type": "crates",
+     "cell": 28,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 29,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 29,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 30,
+     "side": 3
+    },
+    {
+     "type": "sandbags",
+     "cell": 31,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 32,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 33,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 35,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 36,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 36,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 37,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 37,
+     "corner": 0
+    },
+    {
+     "type": "crates",
+     "cell": 38,
+     "corner": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 39,
+     "corner": 1,
+     "fuel": true
+    },
+    {
+     "type": "sandbags",
+     "cell": 40,
+     "side": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 41,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 42,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 43,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 44,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 44,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 45,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 45,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 47,
+     "side": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 48,
+     "corner": 3,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 49,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 49,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "barrels",
+     "cell": 51,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 52,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 53,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 53,
+     "corner": 0
+    },
+    {
+     "type": "crates",
+     "cell": 54,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 55,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 55,
+     "corner": 0
+    },
+    {
+     "type": "crates",
+     "cell": 56,
+     "corner": 1
+    },
+    {
+     "type": "crates",
+     "cell": 57,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 58,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 59,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 60,
+     "corner": 1
+    },
+    {
+     "type": "crates",
+     "cell": 61,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 62,
+     "side": 3
+    },
+    {
+     "type": "sandbags",
+     "cell": 62,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 63,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 63,
+     "corner": 3
+    },
+    {
+     "type": "crates",
+     "cell": 64,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 65,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 65,
+     "corner": 3
+    },
+    {
+     "type": "crates",
+     "cell": 67,
+     "corner": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 68,
+     "side": 2
+    }
+   ],
+   "reach": 21
+  }
+ },
+ {
+  "name": "seed 12345 {yards:2}",
+  "seed": 12345,
+  "opts": {
+   "yards": 2
+  },
+  "plan": {
+   "passages": [
+    [
+     3,
+     2
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     1,
+     8
+    ],
+    [
+     8,
+     7
+    ],
+    [
+     7,
+     0
+    ],
+    [
+     7,
+     14
+    ],
+    [
+     14,
+     15
+    ],
+    [
+     15,
+     22
+    ],
+    [
+     22,
+     21
+    ],
+    [
+     21,
+     28
+    ],
+    [
+     28,
+     29
+    ],
+    [
+     29,
+     30
+    ],
+    [
+     30,
+     31
+    ],
+    [
+     31,
+     24
+    ],
+    [
+     24,
+     17
+    ],
+    [
+     17,
+     16
+    ],
+    [
+     16,
+     9
+    ],
+    [
+     9,
+     10
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     5,
+     6
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     12,
+     19
+    ],
+    [
+     19,
+     18
+    ],
+    [
+     18,
+     25
+    ],
+    [
+     25,
+     32
+    ],
+    [
+     32,
+     39
+    ],
+    [
+     39,
+     38
+    ],
+    [
+     38,
+     37
+    ],
+    [
+     37,
+     44
+    ],
+    [
+     44,
+     51
+    ],
+    [
+     51,
+     50
+    ],
+    [
+     50,
+     43
+    ],
+    [
+     43,
+     42
+    ],
+    [
+     42,
+     49
+    ],
+    [
+     49,
+     56
+    ],
+    [
+     56,
+     57
+    ],
+    [
+     57,
+     64
+    ],
+    [
+     64,
+     65
+    ],
+    [
+     65,
+     58
+    ],
+    [
+     58,
+     59
+    ],
+    [
+     59,
+     52
+    ],
+    [
+     52,
+     53
+    ],
+    [
+     53,
+     46
+    ],
+    [
+     46,
+     45
+    ],
+    [
+     46,
+     47
+    ],
+    [
+     47,
+     40
+    ],
+    [
+     40,
+     41
+    ],
+    [
+     41,
+     34
+    ],
+    [
+     34,
+     27
+    ],
+    [
+     27,
+     20
+    ],
+    [
+     27,
+     26
+    ],
+    [
+     26,
+     33
+    ],
+    [
+     41,
+     48
+    ],
+    [
+     48,
+     55
+    ],
+    [
+     55,
+     54
+    ],
+    [
+     54,
+     61
+    ],
+    [
+     61,
+     62
+    ],
+    [
+     62,
+     69
+    ],
+    [
+     69,
+     68
+    ],
+    [
+     68,
+     67
+    ],
+    [
+     67,
+     66
+    ],
+    [
+     67,
+     60
+    ],
+    [
+     64,
+     63
+    ],
+    [
+     42,
+     35
+    ],
+    [
+     35,
+     36
+    ],
+    [
+     16,
+     23
+    ],
+    [
+     1,
+     8
+    ],
+    [
+     4,
+     11
+    ],
+    [
+     38,
+     39
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     56,
+     63
+    ],
+    [
+     54,
+     55
+    ],
+    [
+     9,
+     16
+    ],
+    [
+     10,
+     17
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     4,
+     5
+    ]
+   ],
+   "spaces": [
+    {
+     "kind": "foyer",
+     "col": 2,
+     "row": 0,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "atrium",
+     "col": 2,
+     "row": 4,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "yard",
+     "col": 0,
+     "row": 4,
+     "w": 2,
+     "h": 3,
+     "along": "x",
+     "shiftBits": 3185244328,
+     "cover": 3
+    },
+    {
+     "kind": "yard",
+     "col": 5,
+     "row": 5,
+     "w": 2,
+     "h": 3,
+     "along": "z",
+     "shiftBits": 448858954,
+     "cover": 2
+    }
+   ],
+   "owner": [
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    2,
+    2,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    2,
+    2,
+    1,
+    1,
+    1,
+    3,
+    3,
+    2,
+    2,
+    -1,
+    -1,
+    -1,
+    3,
+    3,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    3,
+    3,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "barred": [],
+   "vents": [
+    [
+     15,
+     16
+    ],
+    [
+     14,
+     21
+    ],
+    [
+     43,
+     44
+    ]
+   ],
+   "reinforced": [
+    [
+     0,
+     1
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     17,
+     18
+    ],
+    [
+     23,
+     24
+    ],
+    [
+     25,
+     26
+    ],
+    [
+     33,
+     34
+    ],
+    [
+     36,
+     37
+    ],
+    [
+     38,
+     45
+    ],
+    [
+     50,
+     57
+    ],
+    [
+     53,
+     54
+    ],
+    [
+     59,
+     60
+    ],
+    [
+     59,
+     66
+    ],
+    [
+     61,
+     68
+    ],
+    [
+     65,
+     66
+    ]
+   ],
+   "windows": [
+    [
+     5,
+     12,
+     false
+    ],
+    [
+     22,
+     23,
+     false
+    ],
+    [
+     36,
+     37,
+     false
+    ],
+    [
+     51,
+     58,
+     true
+    ],
+    [
+     55,
+     62,
+     true
+    ],
+    [
+     60,
+     61,
+     false
+    ]
+   ],
+   "posts": [
+    {
+     "cell": 17,
+     "facing": 0
+    },
+    {
+     "cell": 24,
+     "facing": 1
+    },
+    {
+     "cell": 23,
+     "facing": 1
+    }
+   ],
+   "props": [
+    {
+     "type": "crates",
+     "cell": 0,
+     "corner": 3
+    },
+    {
+     "type": "crates",
+     "cell": 1,
+     "corner": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 5,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 7,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 14,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 15,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 15,
+     "corner": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 16,
+     "side": 3
+    },
+    {
+     "type": "sandbags",
+     "cell": 18,
+     "side": 0
+    },
+    {
+     "type": "sandbags",
+     "cell": 19,
+     "side": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 20,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 21,
+     "side": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 21,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 22,
+     "side": 2
+    },
+    {
+     "type": "sandbags",
+     "cell": 22,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 25,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 26,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 27,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 28,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 28,
+     "corner": 0
+    },
+    {
+     "type": "crates",
+     "cell": 29,
+     "corner": 0
+    },
+    {
+     "type": "sandbags",
+     "cell": 31,
+     "side": 0
+    },
+    {
+     "type": "sandbags",
+     "cell": 32,
+     "side": 3
+    },
+    {
+     "type": "sandbags",
+     "cell": 33,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 35,
+     "corner": 1,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 37,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 37,
+     "corner": 0,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 38,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 38,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 39,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 40,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 40,
+     "corner": 1,
+     "fuel": false
+    },
+    {
+     "type": "sandbags",
+     "cell": 41,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 42,
+     "corner": 0
+    },
+    {
+     "type": "crates",
+     "cell": 43,
+     "corner": 1
+    },
+    {
+     "type": "crates",
+     "cell": 44,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 45,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 46,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 46,
+     "corner": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 47,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 49,
+     "side": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 51,
+     "corner": 1,
+     "fuel": true
+    },
+    {
+     "type": "crates",
+     "cell": 54,
+     "corner": 2
+    },
+    {
+     "type": "crates",
+     "cell": 55,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 56,
+     "side": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 56,
+     "corner": 3,
+     "fuel": true
+    },
+    {
+     "type": "crates",
+     "cell": 59,
+     "corner": 1
+    },
+    {
+     "type": "crates",
+     "cell": 60,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 62,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 63,
+     "side": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 63,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 64,
+     "corner": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 65,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "barrels",
+     "cell": 67,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 68,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 69,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 69,
+     "corner": 1
+    }
+   ],
+   "reach": 27
+  }
+ },
+ {
+  "name": "seed 12345 {yards:2, windows:.3}",
+  "seed": 12345,
+  "opts": {
+   "yards": 2,
+   "windows": 0.3
+  },
+  "plan": {
+   "passages": [
+    [
+     3,
+     2
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     1,
+     8
+    ],
+    [
+     8,
+     7
+    ],
+    [
+     7,
+     0
+    ],
+    [
+     7,
+     14
+    ],
+    [
+     14,
+     15
+    ],
+    [
+     15,
+     22
+    ],
+    [
+     22,
+     21
+    ],
+    [
+     21,
+     28
+    ],
+    [
+     28,
+     29
+    ],
+    [
+     29,
+     30
+    ],
+    [
+     30,
+     31
+    ],
+    [
+     31,
+     24
+    ],
+    [
+     24,
+     17
+    ],
+    [
+     17,
+     16
+    ],
+    [
+     16,
+     9
+    ],
+    [
+     9,
+     10
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     5,
+     6
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     12,
+     19
+    ],
+    [
+     19,
+     18
+    ],
+    [
+     18,
+     25
+    ],
+    [
+     25,
+     32
+    ],
+    [
+     32,
+     39
+    ],
+    [
+     39,
+     38
+    ],
+    [
+     38,
+     37
+    ],
+    [
+     37,
+     44
+    ],
+    [
+     44,
+     51
+    ],
+    [
+     51,
+     50
+    ],
+    [
+     50,
+     43
+    ],
+    [
+     43,
+     42
+    ],
+    [
+     42,
+     49
+    ],
+    [
+     49,
+     56
+    ],
+    [
+     56,
+     57
+    ],
+    [
+     57,
+     64
+    ],
+    [
+     64,
+     65
+    ],
+    [
+     65,
+     58
+    ],
+    [
+     58,
+     59
+    ],
+    [
+     59,
+     52
+    ],
+    [
+     52,
+     53
+    ],
+    [
+     53,
+     46
+    ],
+    [
+     46,
+     45
+    ],
+    [
+     46,
+     47
+    ],
+    [
+     47,
+     40
+    ],
+    [
+     40,
+     41
+    ],
+    [
+     41,
+     34
+    ],
+    [
+     34,
+     27
+    ],
+    [
+     27,
+     20
+    ],
+    [
+     27,
+     26
+    ],
+    [
+     26,
+     33
+    ],
+    [
+     41,
+     48
+    ],
+    [
+     48,
+     55
+    ],
+    [
+     55,
+     54
+    ],
+    [
+     54,
+     61
+    ],
+    [
+     61,
+     62
+    ],
+    [
+     62,
+     69
+    ],
+    [
+     69,
+     68
+    ],
+    [
+     68,
+     67
+    ],
+    [
+     67,
+     66
+    ],
+    [
+     67,
+     60
+    ],
+    [
+     64,
+     63
+    ],
+    [
+     42,
+     35
+    ],
+    [
+     35,
+     36
+    ],
+    [
+     16,
+     23
+    ],
+    [
+     1,
+     8
+    ],
+    [
+     4,
+     11
+    ],
+    [
+     38,
+     39
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     56,
+     63
+    ],
+    [
+     54,
+     55
+    ],
+    [
+     9,
+     16
+    ],
+    [
+     10,
+     17
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     4,
+     5
+    ]
+   ],
+   "spaces": [
+    {
+     "kind": "foyer",
+     "col": 2,
+     "row": 0,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "atrium",
+     "col": 2,
+     "row": 4,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "yard",
+     "col": 0,
+     "row": 4,
+     "w": 2,
+     "h": 3,
+     "along": "x",
+     "shiftBits": 3185244328,
+     "cover": 3
+    },
+    {
+     "kind": "yard",
+     "col": 5,
+     "row": 5,
+     "w": 2,
+     "h": 3,
+     "along": "z",
+     "shiftBits": 448858954,
+     "cover": 2
+    }
+   ],
+   "owner": [
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    2,
+    2,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    2,
+    2,
+    1,
+    1,
+    1,
+    3,
+    3,
+    2,
+    2,
+    -1,
+    -1,
+    -1,
+    3,
+    3,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    3,
+    3,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "barred": [],
+   "vents": [
+    [
+     15,
+     16
+    ],
+    [
+     14,
+     21
+    ],
+    [
+     43,
+     44
+    ]
+   ],
+   "reinforced": [
+    [
+     0,
+     1
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     17,
+     18
+    ],
+    [
+     23,
+     24
+    ],
+    [
+     25,
+     26
+    ],
+    [
+     33,
+     34
+    ],
+    [
+     36,
+     37
+    ],
+    [
+     38,
+     45
+    ],
+    [
+     50,
+     57
+    ],
+    [
+     53,
+     54
+    ],
+    [
+     59,
+     60
+    ],
+    [
+     59,
+     66
+    ],
+    [
+     61,
+     68
+    ],
+    [
+     65,
+     66
+    ]
+   ],
+   "windows": [
+    [
+     5,
+     12,
+     false
+    ],
+    [
+     22,
+     23,
+     false
+    ],
+    [
+     33,
+     34,
+     true
+    ],
+    [
+     36,
+     37,
+     false
+    ],
+    [
+     49,
+     50,
+     true
+    ],
+    [
+     51,
+     58,
+     true
+    ],
+    [
+     53,
+     60,
+     true
+    ],
+    [
+     55,
+     62,
+     true
+    ],
+    [
+     59,
+     66,
+     true
+    ],
+    [
+     60,
+     61,
+     false
+    ]
+   ],
+   "posts": [
+    {
+     "cell": 17,
+     "facing": 0
+    },
+    {
+     "cell": 24,
+     "facing": 1
+    },
+    {
+     "cell": 23,
+     "facing": 1
+    }
+   ],
+   "props": [
+    {
+     "type": "crates",
+     "cell": 0,
+     "corner": 3
+    },
+    {
+     "type": "crates",
+     "cell": 1,
+     "corner": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 5,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 7,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 14,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 15,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 15,
+     "corner": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 16,
+     "side": 3
+    },
+    {
+     "type": "sandbags",
+     "cell": 18,
+     "side": 0
+    },
+    {
+     "type": "sandbags",
+     "cell": 19,
+     "side": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 20,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 21,
+     "side": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 21,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 22,
+     "side": 2
+    },
+    {
+     "type": "sandbags",
+     "cell": 22,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 25,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 26,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 27,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 28,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 28,
+     "corner": 0
+    },
+    {
+     "type": "crates",
+     "cell": 29,
+     "corner": 0
+    },
+    {
+     "type": "sandbags",
+     "cell": 31,
+     "side": 0
+    },
+    {
+     "type": "sandbags",
+     "cell": 32,
+     "side": 3
+    },
+    {
+     "type": "sandbags",
+     "cell": 33,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 35,
+     "corner": 1,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 37,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 37,
+     "corner": 0,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 38,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 38,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 39,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 40,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 40,
+     "corner": 1,
+     "fuel": false
+    },
+    {
+     "type": "sandbags",
+     "cell": 41,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 42,
+     "corner": 0
+    },
+    {
+     "type": "crates",
+     "cell": 43,
+     "corner": 1
+    },
+    {
+     "type": "crates",
+     "cell": 44,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 45,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 46,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 46,
+     "corner": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 47,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 49,
+     "side": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 51,
+     "corner": 1,
+     "fuel": true
+    },
+    {
+     "type": "crates",
+     "cell": 54,
+     "corner": 2
+    },
+    {
+     "type": "crates",
+     "cell": 55,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 56,
+     "side": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 56,
+     "corner": 3,
+     "fuel": true
+    },
+    {
+     "type": "crates",
+     "cell": 59,
+     "corner": 1
+    },
+    {
+     "type": "crates",
+     "cell": 60,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 62,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 63,
+     "side": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 63,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 64,
+     "corner": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 65,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "barrels",
+     "cell": 67,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 68,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 69,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 69,
+     "corner": 1
+    }
+   ],
+   "reach": 27
+  }
+ },
+ {
+  "name": "seed 12345 {windows:.2}",
+  "seed": 12345,
+  "opts": {
+   "windows": 0.2
+  },
+  "plan": {
+   "passages": [
+    [
+     3,
+     2
+    ],
+    [
+     2,
+     9
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     7
+    ],
+    [
+     7,
+     14
+    ],
+    [
+     14,
+     21
+    ],
+    [
+     21,
+     28
+    ],
+    [
+     28,
+     35
+    ],
+    [
+     35,
+     36
+    ],
+    [
+     36,
+     43
+    ],
+    [
+     43,
+     44
+    ],
+    [
+     44,
+     45
+    ],
+    [
+     45,
+     38
+    ],
+    [
+     38,
+     37
+    ],
+    [
+     37,
+     30
+    ],
+    [
+     30,
+     23
+    ],
+    [
+     23,
+     24
+    ],
+    [
+     24,
+     17
+    ],
+    [
+     17,
+     16
+    ],
+    [
+     16,
+     15
+    ],
+    [
+     15,
+     22
+    ],
+    [
+     22,
+     29
+    ],
+    [
+     17,
+     10
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     18,
+     25
+    ],
+    [
+     25,
+     26
+    ],
+    [
+     26,
+     19
+    ],
+    [
+     19,
+     12
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     20
+    ],
+    [
+     20,
+     27
+    ],
+    [
+     27,
+     34
+    ],
+    [
+     34,
+     41
+    ],
+    [
+     41,
+     48
+    ],
+    [
+     48,
+     47
+    ],
+    [
+     47,
+     40
+    ],
+    [
+     40,
+     39
+    ],
+    [
+     39,
+     46
+    ],
+    [
+     46,
+     53
+    ],
+    [
+     53,
+     52
+    ],
+    [
+     52,
+     51
+    ],
+    [
+     51,
+     50
+    ],
+    [
+     50,
+     49
+    ],
+    [
+     49,
+     42
+    ],
+    [
+     49,
+     56
+    ],
+    [
+     56,
+     57
+    ],
+    [
+     57,
+     58
+    ],
+    [
+     58,
+     59
+    ],
+    [
+     59,
+     60
+    ],
+    [
+     60,
+     67
+    ],
+    [
+     67,
+     66
+    ],
+    [
+     66,
+     65
+    ],
+    [
+     65,
+     64
+    ],
+    [
+     64,
+     63
+    ],
+    [
+     67,
+     68
+    ],
+    [
+     68,
+     69
+    ],
+    [
+     69,
+     62
+    ],
+    [
+     62,
+     61
+    ],
+    [
+     61,
+     54
+    ],
+    [
+     54,
+     55
+    ],
+    [
+     39,
+     32
+    ],
+    [
+     32,
+     33
+    ],
+    [
+     32,
+     31
+    ],
+    [
+     13,
+     6
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     33,
+     34
+    ],
+    [
+     24,
+     25
+    ],
+    [
+     45,
+     52
+    ],
+    [
+     68,
+     69
+    ],
+    [
+     54,
+     61
+    ],
+    [
+     9,
+     16
+    ],
+    [
+     10,
+     17
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     4,
+     5
+    ]
+   ],
+   "spaces": [
+    {
+     "kind": "foyer",
+     "col": 2,
+     "row": 0,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "atrium",
+     "col": 2,
+     "row": 4,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "yard",
+     "col": 5,
+     "row": 3,
+     "w": 2,
+     "h": 2,
+     "along": "z",
+     "shiftBits": 2966171923,
+     "cover": 2
+    }
+   ],
+   "owner": [
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    2,
+    2,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "barred": [],
+   "vents": [
+    [
+     40,
+     41
+    ],
+    [
+     37,
+     44
+    ],
+    [
+     28,
+     29
+    ]
+   ],
+   "reinforced": [
+    [
+     8,
+     15
+    ],
+    [
+     17,
+     18
+    ],
+    [
+     21,
+     22
+    ],
+    [
+     33,
+     40
+    ],
+    [
+     42,
+     43
+    ],
+    [
+     44,
+     51
+    ],
+    [
+     48,
+     55
+    ],
+    [
+     53,
+     54
+    ],
+    [
+     53,
+     60
+    ],
+    [
+     57,
+     64
+    ],
+    [
+     59,
+     66
+    ],
+    [
+     61,
+     68
+    ]
+   ],
+   "windows": [
+    [
+     24,
+     31,
+     true
+    ],
+    [
+     35,
+     42,
+     false
+    ],
+    [
+     53,
+     60,
+     false
+    ]
+   ],
+   "posts": [
+    {
+     "cell": 17,
+     "facing": 0
+    },
+    {
+     "cell": 61,
+     "facing": 1
+    },
+    {
+     "cell": 63,
+     "facing": 0
+    }
+   ],
+   "props": [
+    {
+     "type": "lamp",
+     "cell": 0,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 1,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 1,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 5,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 5,
+     "corner": 1,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 6,
+     "side": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 6,
+     "corner": 1,
+     "fuel": true
+    },
+    {
+     "type": "sandbags",
+     "cell": 7,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 8,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 12,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 13,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 13,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 14,
+     "corner": 2
+    },
+    {
+     "type": "crates",
+     "cell": 15,
+     "corner": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 18,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 19,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 20,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 20,
+     "corner": 0,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 22,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 23,
+     "corner": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 24,
+     "corner": 1,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 25,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 25,
+     "corner": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 26,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "sandbags",
+     "cell": 27,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 28,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 29,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 29,
+     "corner": 1
+    },
+    {
+     "type": "crates",
+     "cell": 30,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 31,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 32,
+     "corner": 2
+    },
+    {
+     "type": "crates",
+     "cell": 33,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 34,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 35,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 36,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 37,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 39,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 40,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 40,
+     "corner": 0,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 41,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 41,
+     "corner": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 43,
+     "corner": 0,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 44,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 44,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 46,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 49,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 49,
+     "corner": 1,
+     "fuel": true
+    },
+    {
+     "type": "barrels",
+     "cell": 50,
+     "corner": 3,
+     "fuel": true
+    },
+    {
+     "type": "crates",
+     "cell": 51,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 52,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 52,
+     "corner": 2
+    },
+    {
+     "type": "sandbags",
+     "cell": 53,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 54,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 54,
+     "corner": 3
+    },
+    {
+     "type": "crates",
+     "cell": 55,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 56,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 56,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 57,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 57,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 58,
+     "side": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 59,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 60,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 68,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 68,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 69,
+     "side": 0
+    }
+   ],
+   "reach": 19
+  }
+ },
+ {
+  "name": "seed 12345 {reinforced:.5, windows:.06, vents:5}",
+  "seed": 12345,
+  "opts": {
+   "reinforced": 0.5,
+   "windows": 0.06,
+   "vents": 5
+  },
+  "plan": {
+   "passages": [
+    [
+     3,
+     2
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     1,
+     8
+    ],
+    [
+     8,
+     7
+    ],
+    [
+     7,
+     0
+    ],
+    [
+     7,
+     14
+    ],
+    [
+     14,
+     15
+    ],
+    [
+     15,
+     22
+    ],
+    [
+     22,
+     21
+    ],
+    [
+     21,
+     28
+    ],
+    [
+     28,
+     29
+    ],
+    [
+     29,
+     30
+    ],
+    [
+     30,
+     31
+    ],
+    [
+     31,
+     24
+    ],
+    [
+     24,
+     17
+    ],
+    [
+     17,
+     16
+    ],
+    [
+     16,
+     9
+    ],
+    [
+     9,
+     10
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     5,
+     6
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     12,
+     19
+    ],
+    [
+     19,
+     18
+    ],
+    [
+     18,
+     25
+    ],
+    [
+     25,
+     32
+    ],
+    [
+     32,
+     39
+    ],
+    [
+     39,
+     38
+    ],
+    [
+     38,
+     37
+    ],
+    [
+     37,
+     44
+    ],
+    [
+     44,
+     51
+    ],
+    [
+     51,
+     50
+    ],
+    [
+     50,
+     43
+    ],
+    [
+     43,
+     42
+    ],
+    [
+     42,
+     49
+    ],
+    [
+     49,
+     56
+    ],
+    [
+     56,
+     57
+    ],
+    [
+     57,
+     64
+    ],
+    [
+     64,
+     65
+    ],
+    [
+     65,
+     58
+    ],
+    [
+     58,
+     59
+    ],
+    [
+     59,
+     52
+    ],
+    [
+     52,
+     53
+    ],
+    [
+     53,
+     46
+    ],
+    [
+     46,
+     45
+    ],
+    [
+     46,
+     47
+    ],
+    [
+     47,
+     40
+    ],
+    [
+     40,
+     41
+    ],
+    [
+     41,
+     34
+    ],
+    [
+     34,
+     27
+    ],
+    [
+     27,
+     20
+    ],
+    [
+     27,
+     26
+    ],
+    [
+     26,
+     33
+    ],
+    [
+     41,
+     48
+    ],
+    [
+     48,
+     55
+    ],
+    [
+     55,
+     54
+    ],
+    [
+     54,
+     61
+    ],
+    [
+     61,
+     62
+    ],
+    [
+     62,
+     69
+    ],
+    [
+     69,
+     68
+    ],
+    [
+     68,
+     67
+    ],
+    [
+     67,
+     66
+    ],
+    [
+     67,
+     60
+    ],
+    [
+     64,
+     63
+    ],
+    [
+     42,
+     35
+    ],
+    [
+     35,
+     36
+    ],
+    [
+     16,
+     23
+    ],
+    [
+     1,
+     8
+    ],
+    [
+     4,
+     11
+    ],
+    [
+     38,
+     39
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     56,
+     63
+    ],
+    [
+     54,
+     55
+    ],
+    [
+     9,
+     16
+    ],
+    [
+     10,
+     17
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     4,
+     5
+    ]
+   ],
+   "spaces": [
+    {
+     "kind": "foyer",
+     "col": 2,
+     "row": 0,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "atrium",
+     "col": 2,
+     "row": 4,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "yard",
+     "col": 0,
+     "row": 6,
+     "w": 3,
+     "h": 2,
+     "along": "x",
+     "shiftBits": 3185244328,
+     "cover": 3
+    },
+    {
+     "kind": "hall",
+     "col": 3,
+     "row": 6,
+     "w": 4,
+     "h": 1
+    }
+   ],
+   "owner": [
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    3,
+    2,
+    2,
+    2,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "barred": [],
+   "vents": [
+    [
+     15,
+     16
+    ],
+    [
+     14,
+     21
+    ],
+    [
+     8,
+     15
+    ],
+    [
+     51,
+     58
+    ],
+    [
+     44,
+     45
+    ]
+   ],
+   "reinforced": [
+    [
+     0,
+     1
+    ],
+    [
+     5,
+     12
+    ],
+    [
+     13,
+     20
+    ],
+    [
+     17,
+     18
+    ],
+    [
+     22,
+     23
+    ],
+    [
+     22,
+     29
+    ],
+    [
+     23,
+     30
+    ],
+    [
+     25,
+     26
+    ],
+    [
+     29,
+     36
+    ],
+    [
+     32,
+     33
+    ],
+    [
+     33,
+     34
+    ],
+    [
+     38,
+     45
+    ],
+    [
+     39,
+     46
+    ],
+    [
+     50,
+     57
+    ],
+    [
+     51,
+     52
+    ],
+    [
+     53,
+     54
+    ],
+    [
+     53,
+     60
+    ],
+    [
+     55,
+     62
+    ],
+    [
+     57,
+     58
+    ],
+    [
+     59,
+     60
+    ],
+    [
+     59,
+     66
+    ],
+    [
+     61,
+     68
+    ],
+    [
+     65,
+     66
+    ]
+   ],
+   "windows": [
+    [
+     32,
+     33,
+     true
+    ]
+   ],
+   "posts": [
+    {
+     "cell": 17,
+     "facing": 0
+    },
+    {
+     "cell": 54,
+     "facing": 2
+    },
+    {
+     "cell": 23,
+     "facing": 1
+    }
+   ],
+   "props": [
+    {
+     "type": "crates",
+     "cell": 0,
+     "corner": 3
+    },
+    {
+     "type": "crates",
+     "cell": 1,
+     "corner": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 5,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 7,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 14,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 15,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 15,
+     "corner": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 16,
+     "side": 3
+    },
+    {
+     "type": "sandbags",
+     "cell": 18,
+     "side": 0
+    },
+    {
+     "type": "sandbags",
+     "cell": 19,
+     "side": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 20,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 21,
+     "side": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 21,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 22,
+     "side": 2
+    },
+    {
+     "type": "sandbags",
+     "cell": 22,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 24,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 24,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 25,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 26,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 27,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 28,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 28,
+     "corner": 0
+    },
+    {
+     "type": "crates",
+     "cell": 29,
+     "corner": 0
+    },
+    {
+     "type": "sandbags",
+     "cell": 31,
+     "side": 0
+    },
+    {
+     "type": "sandbags",
+     "cell": 32,
+     "side": 3
+    },
+    {
+     "type": "sandbags",
+     "cell": 33,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 35,
+     "corner": 1,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 37,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 37,
+     "corner": 0,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 38,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 38,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 39,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 40,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 40,
+     "corner": 1,
+     "fuel": false
+    },
+    {
+     "type": "sandbags",
+     "cell": 41,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 42,
+     "corner": 0
+    },
+    {
+     "type": "crates",
+     "cell": 43,
+     "corner": 1
+    },
+    {
+     "type": "crates",
+     "cell": 44,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 45,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 46,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 46,
+     "corner": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 47,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 49,
+     "side": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 51,
+     "corner": 1,
+     "fuel": true
+    },
+    {
+     "type": "crates",
+     "cell": 55,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 56,
+     "side": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 56,
+     "corner": 3,
+     "fuel": true
+    },
+    {
+     "type": "crates",
+     "cell": 59,
+     "corner": 1
+    },
+    {
+     "type": "crates",
+     "cell": 60,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 62,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 63,
+     "side": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 63,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 64,
+     "corner": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 65,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "barrels",
+     "cell": 67,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 68,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 69,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 69,
+     "corner": 1
+    }
+   ],
+   "reach": 19
+  }
+ },
+ {
+  "name": "seed 12345 {fuel:.8}",
+  "seed": 12345,
+  "opts": {
+   "fuel": 0.8
+  },
+  "plan": {
+   "passages": [
+    [
+     3,
+     2
+    ],
+    [
+     2,
+     9
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     7
+    ],
+    [
+     7,
+     14
+    ],
+    [
+     14,
+     21
+    ],
+    [
+     21,
+     28
+    ],
+    [
+     28,
+     35
+    ],
+    [
+     35,
+     36
+    ],
+    [
+     36,
+     43
+    ],
+    [
+     43,
+     44
+    ],
+    [
+     44,
+     45
+    ],
+    [
+     45,
+     38
+    ],
+    [
+     38,
+     37
+    ],
+    [
+     37,
+     30
+    ],
+    [
+     30,
+     23
+    ],
+    [
+     23,
+     24
+    ],
+    [
+     24,
+     17
+    ],
+    [
+     17,
+     16
+    ],
+    [
+     16,
+     15
+    ],
+    [
+     15,
+     22
+    ],
+    [
+     22,
+     29
+    ],
+    [
+     17,
+     10
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     18,
+     25
+    ],
+    [
+     25,
+     26
+    ],
+    [
+     26,
+     19
+    ],
+    [
+     19,
+     12
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     20
+    ],
+    [
+     20,
+     27
+    ],
+    [
+     27,
+     34
+    ],
+    [
+     34,
+     41
+    ],
+    [
+     41,
+     48
+    ],
+    [
+     48,
+     47
+    ],
+    [
+     47,
+     40
+    ],
+    [
+     40,
+     39
+    ],
+    [
+     39,
+     46
+    ],
+    [
+     46,
+     53
+    ],
+    [
+     53,
+     52
+    ],
+    [
+     52,
+     51
+    ],
+    [
+     51,
+     50
+    ],
+    [
+     50,
+     49
+    ],
+    [
+     49,
+     42
+    ],
+    [
+     49,
+     56
+    ],
+    [
+     56,
+     57
+    ],
+    [
+     57,
+     58
+    ],
+    [
+     58,
+     59
+    ],
+    [
+     59,
+     60
+    ],
+    [
+     60,
+     67
+    ],
+    [
+     67,
+     66
+    ],
+    [
+     66,
+     65
+    ],
+    [
+     65,
+     64
+    ],
+    [
+     64,
+     63
+    ],
+    [
+     67,
+     68
+    ],
+    [
+     68,
+     69
+    ],
+    [
+     69,
+     62
+    ],
+    [
+     62,
+     61
+    ],
+    [
+     61,
+     54
+    ],
+    [
+     54,
+     55
+    ],
+    [
+     39,
+     32
+    ],
+    [
+     32,
+     33
+    ],
+    [
+     32,
+     31
+    ],
+    [
+     13,
+     6
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     33,
+     34
+    ],
+    [
+     24,
+     25
+    ],
+    [
+     45,
+     52
+    ],
+    [
+     68,
+     69
+    ],
+    [
+     54,
+     61
+    ],
+    [
+     9,
+     16
+    ],
+    [
+     10,
+     17
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     4,
+     5
+    ]
+   ],
+   "spaces": [
+    {
+     "kind": "foyer",
+     "col": 2,
+     "row": 0,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "atrium",
+     "col": 2,
+     "row": 4,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "yard",
+     "col": 5,
+     "row": 3,
+     "w": 2,
+     "h": 2,
+     "along": "z",
+     "shiftBits": 2966171923,
+     "cover": 2
+    }
+   ],
+   "owner": [
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    2,
+    2,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "barred": [],
+   "vents": [
+    [
+     40,
+     41
+    ],
+    [
+     37,
+     44
+    ],
+    [
+     28,
+     29
+    ]
+   ],
+   "reinforced": [
+    [
+     8,
+     15
+    ],
+    [
+     17,
+     18
+    ],
+    [
+     21,
+     22
+    ],
+    [
+     33,
+     40
+    ],
+    [
+     42,
+     43
+    ],
+    [
+     44,
+     51
+    ],
+    [
+     48,
+     55
+    ],
+    [
+     53,
+     54
+    ],
+    [
+     53,
+     60
+    ],
+    [
+     57,
+     64
+    ],
+    [
+     59,
+     66
+    ],
+    [
+     61,
+     68
+    ]
+   ],
+   "windows": [
+    [
+     24,
+     31,
+     true
+    ],
+    [
+     35,
+     42,
+     false
+    ],
+    [
+     53,
+     60,
+     false
+    ]
+   ],
+   "posts": [
+    {
+     "cell": 17,
+     "facing": 0
+    },
+    {
+     "cell": 61,
+     "facing": 1
+    },
+    {
+     "cell": 63,
+     "facing": 0
+    }
+   ],
+   "props": [
+    {
+     "type": "lamp",
+     "cell": 0,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 1,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 1,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 5,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 5,
+     "corner": 1,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 6,
+     "side": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 6,
+     "corner": 1,
+     "fuel": true
+    },
+    {
+     "type": "sandbags",
+     "cell": 7,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 8,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 12,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 13,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 13,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 14,
+     "corner": 2
+    },
+    {
+     "type": "crates",
+     "cell": 15,
+     "corner": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 18,
+     "corner": 3,
+     "fuel": true
+    },
+    {
+     "type": "crates",
+     "cell": 19,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 20,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 20,
+     "corner": 0,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 22,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 23,
+     "corner": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 24,
+     "corner": 1,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 25,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 25,
+     "corner": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 26,
+     "corner": 2,
+     "fuel": true
+    },
+    {
+     "type": "sandbags",
+     "cell": 27,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 28,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 29,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 29,
+     "corner": 1
+    },
+    {
+     "type": "crates",
+     "cell": 30,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 31,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 32,
+     "corner": 2
+    },
+    {
+     "type": "crates",
+     "cell": 33,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 34,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 35,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 36,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 37,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 39,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 40,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 40,
+     "corner": 0,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 41,
+     "side": 1
+    },
+    {
+     "type": "crates",
+     "cell": 41,
+     "corner": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 43,
+     "corner": 0,
+     "fuel": true
+    },
+    {
+     "type": "lamp",
+     "cell": 44,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 44,
+     "corner": 3,
+     "fuel": true
+    },
+    {
+     "type": "crates",
+     "cell": 46,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 49,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 49,
+     "corner": 1,
+     "fuel": true
+    },
+    {
+     "type": "barrels",
+     "cell": 50,
+     "corner": 3,
+     "fuel": true
+    },
+    {
+     "type": "crates",
+     "cell": 51,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 52,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 52,
+     "corner": 2
+    },
+    {
+     "type": "sandbags",
+     "cell": 53,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 54,
+     "side": 3
+    },
+    {
+     "type": "crates",
+     "cell": 54,
+     "corner": 3
+    },
+    {
+     "type": "crates",
+     "cell": 55,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 56,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 56,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 57,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 57,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 58,
+     "side": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 59,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 60,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 68,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 68,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 69,
+     "side": 0
+    }
+   ],
+   "reach": 19
+  }
+ },
+ {
+  "name": "seed 12345 {vents:6, gates:.85, windows:.28}",
+  "seed": 12345,
+  "opts": {
+   "vents": 6,
+   "gates": 0.85,
+   "windows": 0.28
+  },
+  "plan": {
+   "passages": [
+    [
+     3,
+     2
+    ],
+    [
+     2,
+     9
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     7
+    ],
+    [
+     7,
+     14
+    ],
+    [
+     14,
+     15
+    ],
+    [
+     15,
+     16
+    ],
+    [
+     16,
+     23
+    ],
+    [
+     23,
+     22
+    ],
+    [
+     22,
+     21
+    ],
+    [
+     21,
+     28
+    ],
+    [
+     28,
+     29
+    ],
+    [
+     29,
+     36
+    ],
+    [
+     36,
+     35
+    ],
+    [
+     35,
+     42
+    ],
+    [
+     42,
+     43
+    ],
+    [
+     43,
+     44
+    ],
+    [
+     44,
+     37
+    ],
+    [
+     37,
+     38
+    ],
+    [
+     38,
+     45
+    ],
+    [
+     45,
+     46
+    ],
+    [
+     46,
+     47
+    ],
+    [
+     47,
+     48
+    ],
+    [
+     48,
+     55
+    ],
+    [
+     55,
+     62
+    ],
+    [
+     62,
+     61
+    ],
+    [
+     61,
+     60
+    ],
+    [
+     60,
+     59
+    ],
+    [
+     59,
+     58
+    ],
+    [
+     58,
+     57
+    ],
+    [
+     57,
+     50
+    ],
+    [
+     50,
+     51
+    ],
+    [
+     51,
+     52
+    ],
+    [
+     52,
+     53
+    ],
+    [
+     53,
+     54
+    ],
+    [
+     50,
+     49
+    ],
+    [
+     49,
+     56
+    ],
+    [
+     56,
+     63
+    ],
+    [
+     63,
+     64
+    ],
+    [
+     64,
+     65
+    ],
+    [
+     65,
+     66
+    ],
+    [
+     66,
+     67
+    ],
+    [
+     67,
+     68
+    ],
+    [
+     68,
+     69
+    ],
+    [
+     48,
+     41
+    ],
+    [
+     41,
+     40
+    ],
+    [
+     40,
+     33
+    ],
+    [
+     33,
+     34
+    ],
+    [
+     34,
+     27
+    ],
+    [
+     27,
+     20
+    ],
+    [
+     20,
+     13
+    ],
+    [
+     13,
+     6
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     4,
+     11
+    ],
+    [
+     11,
+     10
+    ],
+    [
+     10,
+     17
+    ],
+    [
+     17,
+     18
+    ],
+    [
+     18,
+     25
+    ],
+    [
+     25,
+     32
+    ],
+    [
+     32,
+     31
+    ],
+    [
+     31,
+     30
+    ],
+    [
+     31,
+     24
+    ],
+    [
+     32,
+     39
+    ],
+    [
+     25,
+     26
+    ],
+    [
+     26,
+     19
+    ],
+    [
+     19,
+     12
+    ],
+    [
+     61,
+     62
+    ],
+    [
+     40,
+     41
+    ],
+    [
+     44,
+     45
+    ],
+    [
+     40,
+     41
+    ],
+    [
+     49,
+     50
+    ],
+    [
+     58,
+     59
+    ],
+    [
+     9,
+     16
+    ],
+    [
+     10,
+     17
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     11,
+     12
+    ]
+   ],
+   "spaces": [
+    {
+     "kind": "foyer",
+     "col": 2,
+     "row": 0,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "atrium",
+     "col": 2,
+     "row": 4,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "kind": "yard",
+     "col": 5,
+     "row": 5,
+     "w": 2,
+     "h": 3,
+     "along": "z",
+     "shiftBits": 17985963,
+     "cover": 3
+    },
+    {
+     "kind": "yard",
+     "col": 0,
+     "row": 5,
+     "w": 2,
+     "h": 2,
+     "along": "x",
+     "shiftBits": 981452052,
+     "cover": 3
+    }
+   ],
+   "owner": [
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    3,
+    3,
+    1,
+    1,
+    1,
+    2,
+    2,
+    3,
+    3,
+    -1,
+    -1,
+    -1,
+    2,
+    2,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    2,
+    2,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "barred": [],
+   "vents": [
+    [
+     12,
+     13
+    ],
+    [
+     26,
+     27
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     14,
+     21
+    ],
+    [
+     53,
+     60
+    ],
+    [
+     52,
+     59
+    ]
+   ],
+   "reinforced": [
+    [
+     5,
+     12
+    ],
+    [
+     15,
+     22
+    ],
+    [
+     23,
+     30
+    ],
+    [
+     26,
+     33
+    ],
+    [
+     32,
+     33
+    ],
+    [
+     43,
+     50
+    ],
+    [
+     44,
+     51
+    ],
+    [
+     51,
+     58
+    ],
+    [
+     59,
+     66
+    ]
+   ],
+   "windows": [
+    [
+     16,
+     17,
+     false
+    ],
+    [
+     19,
+     20,
+     true
+    ],
+    [
+     28,
+     35,
+     true
+    ],
+    [
+     51,
+     58,
+     false
+    ],
+    [
+     56,
+     57,
+     true
+    ],
+    [
+     58,
+     65,
+     true
+    ],
+    [
+     60,
+     67,
+     true
+    ],
+    [
+     61,
+     68,
+     false
+    ]
+   ],
+   "posts": [
+    {
+     "cell": 17,
+     "facing": 0
+    },
+    {
+     "cell": 24,
+     "facing": 3
+    },
+    {
+     "cell": 26,
+     "facing": 1
+    }
+   ],
+   "props": [
+    {
+     "type": "lamp",
+     "cell": 0,
+     "side": 1
+    },
+    {
+     "type": "sandbags",
+     "cell": 0,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 1,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 1,
+     "corner": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 6,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 7,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 7,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 8,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 8,
+     "corner": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 12,
+     "side": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 12,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 13,
+     "corner": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 14,
+     "side": 2
+    },
+    {
+     "type": "sandbags",
+     "cell": 14,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 15,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 18,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 18,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 20,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 22,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 23,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 27,
+     "side": 2
+    },
+    {
+     "type": "sandbags",
+     "cell": 28,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 29,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 29,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 30,
+     "side": 0
+    },
+    {
+     "type": "sandbags",
+     "cell": 30,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 31,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 32,
+     "side": 2
+    },
+    {
+     "type": "sandbags",
+     "cell": 33,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 34,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 35,
+     "side": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 35,
+     "corner": 2,
+     "fuel": true
+    },
+    {
+     "type": "crates",
+     "cell": 36,
+     "corner": 2
+    },
+    {
+     "type": "sandbags",
+     "cell": 37,
+     "side": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 38,
+     "side": 2
+    },
+    {
+     "type": "barrels",
+     "cell": 38,
+     "corner": 0,
+     "fuel": false
+    },
+    {
+     "type": "barrels",
+     "cell": 39,
+     "corner": 1,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 42,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 43,
+     "side": 1
+    },
+    {
+     "type": "lamp",
+     "cell": 45,
+     "side": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 45,
+     "corner": 1,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 46,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 47,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 47,
+     "corner": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 48,
+     "side": 0
+    },
+    {
+     "type": "barrels",
+     "cell": 48,
+     "corner": 3,
+     "fuel": false
+    },
+    {
+     "type": "crates",
+     "cell": 49,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 51,
+     "side": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 51,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "sandbags",
+     "cell": 53,
+     "side": 0
+    },
+    {
+     "type": "crates",
+     "cell": 54,
+     "corner": 2
+    },
+    {
+     "type": "crates",
+     "cell": 55,
+     "corner": 2
+    },
+    {
+     "type": "crates",
+     "cell": 56,
+     "corner": 2
+    },
+    {
+     "type": "lamp",
+     "cell": 57,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 58,
+     "side": 3
+    },
+    {
+     "type": "lamp",
+     "cell": 59,
+     "side": 0
+    },
+    {
+     "type": "sandbags",
+     "cell": 60,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 61,
+     "side": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 61,
+     "corner": 0,
+     "fuel": false
+    },
+    {
+     "type": "lamp",
+     "cell": 62,
+     "side": 3
+    },
+    {
+     "type": "barrels",
+     "cell": 63,
+     "corner": 3,
+     "fuel": true
+    },
+    {
+     "type": "barrels",
+     "cell": 65,
+     "corner": 2,
+     "fuel": false
+    },
+    {
+     "type": "sandbags",
+     "cell": 67,
+     "side": 0
+    },
+    {
+     "type": "lamp",
+     "cell": 68,
+     "side": 2
+    },
+    {
+     "type": "crates",
+     "cell": 68,
+     "corner": 1
+    },
+    {
+     "type": "barrels",
+     "cell": 69,
+     "corner": 3,
+     "fuel": false
+    }
+   ],
+   "reach": 21
+  }
+ }
+]

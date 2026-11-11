@@ -1,0 +1,15 @@
+# Godot
+.godot/
+*.translation
+export.cfg
+export_credentials.cfg
+
+# .NET build output
+.mono/
+bin/
+obj/
+*.user
+
+# Local builds and logs
+builds/
+logs/
