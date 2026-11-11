@@ -13,7 +13,8 @@ config_version=5
 config/name="Bunker Buster"
 config/version="g1"
 run/main_scene="res://scenes/Main.tscn"
-config/features=PackedStringArray("4.6", "C#", "Forward Plus")
+config/icon="res://icon.png"
+config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 
 [display]
 

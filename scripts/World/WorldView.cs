@@ -41,7 +41,6 @@ namespace BunkerBuster
                 };
                 if (TextureNames.TryGetValue(i, out var name))
                     mat.AlbedoTexture = GD.Load<Texture2D>($"res://assets/textures/{name}.png");
-                if (i == 15) mat.AlbedoColor = new Color(1.9f, .42f, .45f);   // fuel drums: the drum texture painted red
                 if (i == 4) { mat.EmissionEnabled = true; mat.Emission = new Color(.05f, .35f, .2f); }
                 materials[i] = mat;
             }
@@ -74,6 +73,15 @@ namespace BunkerBuster
         public void Show(Level level, Random rng)
         {
             Level = level;
+            // this deploy's paint job: tint each material's texture to the rolled colours
+            var palette = Palette.Roll(level.Theme, rng);
+            for (int i = 1; i < materials.Length; i++)
+            {
+                var mat = (StandardMaterial3D)materials[i];
+                Color t = palette.Tints[i];
+                if (i == 15) t = new Color(t.R * 1.9f, t.G * .42f, t.B * .45f);
+                mat.AlbedoColor = t;
+            }
             string moodId = level.Theme.Moods[rng.Next(level.Theme.Moods.Length)];
             var mood = Mood.Get(moodId);
             double R(double a, double b) => a + rng.NextDouble() * (b - a);
@@ -111,9 +119,13 @@ namespace BunkerBuster
             };
             if (level.Theme.NightVision)
             {
+                // night-vision goggles: grey world, green phosphor light, brightened so nothing is hard to see
                 env.AdjustmentEnabled = true;
-                env.AdjustmentSaturation = .05f;
-                env.AdjustmentBrightness = 1.25f;
+                env.AdjustmentBrightness = 1.35f;
+                env.AmbientLightSource = Godot.Environment.AmbientSource.Color;
+                env.AmbientLightColor = new Color(.35f, 1f, .45f);
+                env.AmbientLightEnergy = 1.1f;
+                sun.LightColor = new Color(.4f, 1f, .5f);
             }
             environment.Environment = env;
 

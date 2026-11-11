@@ -14,6 +14,9 @@ if not defined GODOT (
 if not defined GODOT (
   for /r "%USERPROFILE%\Desktop" %%f in (Godot*mono*console.exe) do set "GODOT=%%f"
 )
+if not defined GODOT (
+  for /d %%d in ("%USERPROFILE%\Downloads\Godot*mono*") do for /r "%%d" %%f in (Godot*mono*console.exe) do set "GODOT=%%f"
+)
 
 echo Bunker Buster check %DATE% %TIME% > %LOG%
 echo GODOT=%GODOT% >> %LOG%
