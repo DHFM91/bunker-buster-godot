@@ -32,7 +32,7 @@ namespace BunkerBuster
 
         public void Spawn(double x, double z)
         {
-            X = x; Z = z; Eye = EyeStand; Yaw = 0; Pitch = 0; Crouched = false;
+            X = x; Z = z; Eye = EyeStand; Yaw = Mathf.Pi; Pitch = 0; Crouched = false;   // face into the base (+z), toward the foyer exits
             ApplyTransform();
         }
 

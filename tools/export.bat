@@ -10,14 +10,15 @@ if not exist logs mkdir logs
 if not exist builds\windows mkdir builds\windows
 set LOG=logs\export.txt
 
+if not defined GODOT if exist "%USERPROFILE%\Downloads\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64_console.exe" set "GODOT=%USERPROFILE%\Downloads\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64_console.exe"
 if not defined GODOT (
-  for /r "C:\Godot" %%f in (Godot*mono*console.exe) do set "GODOT=%%f"
+  for /f "delims=" %%f in ('dir /s /b "C:\Godot\Godot*mono*console.exe" 2^>nul') do set "GODOT=%%f"
 )
 if not defined GODOT (
-  for /r "%USERPROFILE%\Desktop" %%f in (Godot*mono*console.exe) do set "GODOT=%%f"
+  for /f "delims=" %%f in ('dir /b /s "%USERPROFILE%\Desktop\Godot*mono*console.exe" 2^>nul') do set "GODOT=%%f"
 )
 if not defined GODOT (
-  for /d %%d in ("%USERPROFILE%\Downloads\Godot*mono*") do for /r "%%d" %%f in (Godot*mono*console.exe) do set "GODOT=%%f"
+  for /f "delims=" %%f in ('dir /s /b "%USERPROFILE%\Downloads\Godot*mono*console.exe" 2^>nul') do set "GODOT=%%f"
 )
 if not defined GODOT (
   echo Godot .NET console exe not found: put it in C:\Godot or set GODOT. > %LOG%
