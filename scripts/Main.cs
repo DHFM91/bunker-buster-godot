@@ -30,7 +30,10 @@ namespace BunkerBuster
         State state;
         int levelNumber = 1, levelsCleared, runTotal;
         double levelTime, runTime, shake;
-        bool hasIntel;
+        bool hasIntel, smoke;
+        double smokeTime;
+        int smokeStep;
+        readonly System.Text.StringBuilder smokeLog = new System.Text.StringBuilder();
 
         public override void _Ready()
         {
@@ -39,6 +42,7 @@ namespace BunkerBuster
                 RunSelfTests();
                 return;
             }
+            smoke = OS.GetCmdlineUserArgs().Contains("--smoketest");
             world = new VoxelWorld();
             view = new WorldView { Name = "WorldView", World = world };
             AddChild(view);
@@ -85,6 +89,89 @@ namespace BunkerBuster
 
             theme = Theme.All[0];
             NewLevel();
+            if (smoke) { Deploy(); Input.MouseMode = Input.MouseModeEnum.Visible; }
+        }
+
+        void SmokeLog(string line)
+        {
+            smokeLog.AppendLine($"[{smokeTime,6:0.00}s] {line}");
+            GD.Print(line);
+        }
+
+        /// <summary>
+        /// Automated play-test (run with `-- --smoketest`): aims at walls, fires, plants a charge,
+        /// throws a grenade, walks, and lets the guards react, logging what happened to logs/smoketest.txt.
+        /// </summary>
+        void SmokeStep(double dt)
+        {
+            smokeTime += dt;
+            switch (smokeStep)
+            {
+                case 0:
+                    SmokeLog($"level built: {level.Theme.Name}, guards {guards.Guards.Count}, lamps {level.Lamps.Count}, hp {combat.Hp}, mag {combat.Magazine}");
+                    // turn until the nearest thing in view is breakable concrete within 12 m
+                    player.Pitch = -.05f;
+                    for (int k = 0; k < 72; k++)
+                    {
+                        player.Yaw = Mathf.Pi + k * Mathf.Tau / 72;
+                        player.Step(0);
+                        var probe = destruction.Trace(new Vector3((float)player.X, (float)player.Eye, (float)player.Z), player.LookDirection, 12);
+                        if (probe.Material == 2) break;
+                    }
+                    smokeStep++; break;
+                case 1:
+                    if (smokeTime < .5) break;
+                    var hit = destruction.Trace(new Vector3((float)player.X, (float)player.Eye, (float)player.Z), player.LookDirection, 60);
+                    SmokeLog($"aim ray hits material {hit.Material} at {hit.T:0.0}m");
+                    for (int i = 0; i < 6; i++) { combat.Cooldown = 0; combat.Fire(); }
+                    SmokeLog($"fired 6: magazine {combat.Magazine}, concrete destroyed {destruction.Blocks}, alert {GuardDirector.Phases[guards.AlertLevel].Name}");
+                    smokeStep++; break;
+                case 2:
+                    if (smokeTime < 1.5) break;
+                    {
+                        // step up to the wall so it's within planting range
+                        var eye = new Vector3((float)player.X, (float)player.Eye, (float)player.Z);
+                        var wall = destruction.Trace(eye, player.LookDirection, 30);
+                        if (wall.Hit && wall.T > 3.5)
+                        {
+                            var d = player.LookDirection; d.Y = 0; d = d.Normalized();
+                            double nx = player.X + d.X * (wall.T - 3), nz = player.Z + d.Z * (wall.T - 3);
+                            if (world.CanStand(nx, nz, 4.4)) { player.X = nx; player.Z = nz; player.Step(0); }
+                        }
+                        SmokeLog($"facing material {destruction.Trace(new Vector3((float)player.X, (float)player.Eye, (float)player.Z), player.LookDirection, 30).Material} for the charge");
+                    }
+                    combat.PlantCharge();
+                    SmokeLog($"plant charge: charges left before fuse {combat.Charges}");
+                    smokeStep++; break;
+                case 3:
+                    if (smokeTime < 5) break;
+                    SmokeLog($"after charge: charges {combat.Charges}, concrete destroyed {destruction.Blocks}, hp {combat.Hp}, alert {GuardDirector.Phases[guards.AlertLevel].Name}, chunks dirty {world.DirtyChunks.Count}");
+                    player.Yaw = Mathf.Pi; player.Pitch = .25f;
+                    combat.ThrowGrenade();
+                    SmokeLog($"grenade thrown: {combat.GrenadeCount} left");
+                    smokeStep++; break;
+                case 4:
+                    if (smokeTime < 9) break;
+                    SmokeLog($"after grenade: concrete destroyed {destruction.Blocks}, hp {combat.Hp}, downed {guards.Downed}, alert {GuardDirector.Phases[guards.AlertLevel].Name}");
+                    smokeStep++; break;
+                case 5:
+                    // walk forward into the base for a few seconds
+                    Input.ActionPress("move_forward");
+                    if (smokeTime < 13) break;
+                    Input.ActionRelease("move_forward");
+                    double moved = Math.Sqrt((player.X - level.ExtractionX) * (player.X - level.ExtractionX) + (player.Z - level.ExtractionZ) * (player.Z - level.ExtractionZ));
+                    SmokeLog($"walked: {moved:0.0}m from the pad, hp {combat.Hp}, alert {GuardDirector.Phases[guards.AlertLevel].Name}, state {state}");
+                    smokeStep++; break;
+                case 6:
+                    if (smokeTime < 25) break;
+                    int moving = guards.Guards.Count(g => g.Alive && g.Pace > .1);
+                    SmokeLog($"after 12s more: guards {guards.Guards.Count}, alive {guards.Guards.Count(g => g.Alive)}, moving {moving}, hp {combat.Hp}, alert {GuardDirector.Phases[guards.AlertLevel].Name}, state {state}, fps {Engine.GetFramesPerSecond()}");
+                    string dir = ProjectSettings.GlobalizePath("res://logs");
+                    System.IO.Directory.CreateDirectory(dir);
+                    System.IO.File.WriteAllText(System.IO.Path.Combine(dir, "smoketest.txt"), smokeLog.ToString());
+                    GetTree().Quit();
+                    smokeStep++; break;
+            }
         }
 
         void NewLevel()
@@ -114,6 +201,7 @@ namespace BunkerBuster
             if (e is InputEventMouseButton mb && mb.Pressed && mb.ButtonIndex == MouseButton.Left)
             {
                 if (state == State.Briefing || state == State.Paused) { Deploy(); GetViewport().SetInputAsHandled(); }
+                else if (state == State.Playing) combat.Fire();   // a quick click between frames still fires
                 else if (state == State.Won) { levelNumber++; theme = PickTheme(); NewLevel(); }
                 else if (state == State.Lost) { levelNumber = 1; levelsCleared = 0; runTotal = 0; runTime = 0; theme = Theme.All[0]; NewLevel(); }
             }
@@ -152,6 +240,11 @@ namespace BunkerBuster
         {
             if (player == null) return;
             double dt = Math.Min(delta, .05);
+            if (smoke && smokeStep < 7)
+            {
+                if (state != State.Playing) { SmokeLog($"run ended early: {state}"); smokeStep = 6; smokeTime = 99; }
+                SmokeStep(dt);
+            }
             if (state == State.Playing)
             {
                 levelTime += dt;

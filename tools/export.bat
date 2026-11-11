@@ -27,6 +27,23 @@ if not defined GODOT (
 )
 
 echo Bunker Buster export %DATE% %TIME% > %LOG%
+
+rem Install the .NET export templates from Downloads the first time.
+set "TPL=%APPDATA%\Godot\export_templates\4.7.2.stable.mono"
+if not exist "%TPL%\windows_release_x86_64.exe" (
+  if exist "%USERPROFILE%\Downloads\Godot_v4.7.2-stable_mono_export_templates.tpz" (
+    echo Installing export templates... >> %LOG%
+    if exist "%TEMP%\bb_tpl" rmdir /s /q "%TEMP%\bb_tpl"
+    mkdir "%TEMP%\bb_tpl"
+    tar -xf "%USERPROFILE%\Downloads\Godot_v4.7.2-stable_mono_export_templates.tpz" -C "%TEMP%\bb_tpl" >> %LOG% 2>&1
+    if not exist "%TPL%" mkdir "%TPL%"
+    xcopy /e /y /q "%TEMP%\bb_tpl\templates\*" "%TPL%\" >> %LOG% 2>&1
+    rmdir /s /q "%TEMP%\bb_tpl"
+  ) else (
+    echo Export templates missing: download Godot_v4.7.2-stable_mono_export_templates.tpz into Downloads. >> %LOG%
+  )
+)
+dir "%TPL%" >> %LOG% 2>&1
 del /q builds\windows\* 2>nul
 for /d %%d in (builds\windows\*) do rmdir /s /q "%%d"
 "%GODOT%" --headless --path . --import >> %LOG% 2>&1
@@ -38,9 +55,9 @@ if not exist builds\windows\BunkerBuster.exe (
 )
 del /q builds\BunkerBuster-windows.zip 2>nul
 powershell -NoProfile -Command "Compress-Archive -Path 'builds\windows\*' -DestinationPath 'builds\BunkerBuster-windows.zip'" >> %LOG% 2>&1
+dir builds\windows >> %LOG% 2>&1
 echo EXPORT OK: builds\BunkerBuster-windows.zip >> %LOG%
 type %LOG%
-explorer builds
 
 :end
 endlocal

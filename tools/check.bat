@@ -44,6 +44,11 @@ echo. >> %LOG%
 echo ===== self-test ===== >> %LOG%
 "%GODOT%" --headless --path . -- --selftest >> %LOG% 2>&1
 
+echo. >> %LOG%
+echo ===== smoke test (automated play) ===== >> %LOG%
+"%GODOT%" --headless --path . -- --smoketest >> %LOG% 2>&1
+type logs\smoketest.txt >> %LOG% 2>nul
+
 :done
 type %LOG%
 endlocal
