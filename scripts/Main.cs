@@ -10,7 +10,7 @@ namespace BunkerBuster
     /// </summary>
     public partial class Main : Node3D
     {
-        public const string Version = "g2";
+        public const string Version = "g3";
 
         enum State { Briefing, Playing, Paused, Won, Lost }
 

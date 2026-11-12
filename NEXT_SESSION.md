@@ -1,6 +1,6 @@
 # Bunker Buster (Godot): next session
 
-Start here. Current version: **g2**. Browser reference game: DHFM91/bunker-buster (v19).
+Start here. Current version: **g3**. Browser reference game: DHFM91/bunker-buster (v19).
 
 ## Where things are
 - Repo: DHFM91/bunker-buster-godot (not linked anywhere public until it's ready to share).
