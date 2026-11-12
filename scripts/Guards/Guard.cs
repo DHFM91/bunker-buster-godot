@@ -18,7 +18,8 @@ namespace BunkerBuster
         public bool HasPost;
         public double PostX, PostZ, PostYaw;
         public int Pose;                 // which of the three downed poses
-        public Sprite3D Sprite, Icon;
+        public GuardModel Model;
+        public Sprite3D Icon;
 
         public bool Alive => Hp > 0;
     }

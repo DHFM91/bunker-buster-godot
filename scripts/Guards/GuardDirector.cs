@@ -63,14 +63,12 @@ namespace BunkerBuster
         }
         Report report;
 
-        Texture2D sheet, downed, iconSpotted, iconHeard;
+        Texture2D iconSpotted, iconHeard;
         BoxMesh tracerMesh;
         StandardMaterial3D tracerMat;
 
         public override void _Ready()
         {
-            sheet = GD.Load<Texture2D>("res://assets/sprites/guard_sheet.png");
-            downed = GD.Load<Texture2D>("res://assets/sprites/guard_downed.png");
             iconSpotted = GD.Load<Texture2D>("res://assets/sprites/icon_spotted.png");
             iconHeard = GD.Load<Texture2D>("res://assets/sprites/icon_heard.png");
             tracerMat = new StandardMaterial3D { ShadingMode = BaseMaterial3D.ShadingModeEnum.Unshaded, AlbedoColor = new Color(1, .85f, .5f), EmissionEnabled = true, Emission = new Color(1, .7f, .3f), EmissionEnergyMultiplier = 3 };
@@ -83,7 +81,7 @@ namespace BunkerBuster
 
         public void Spawn(Level level, int levelNum)
         {
-            foreach (var g in Guards) { g.Sprite?.QueueFree(); g.Icon?.QueueFree(); }
+            foreach (var g in Guards) { g.Model?.QueueFree(); g.Icon?.QueueFree(); }
             Guards.Clear();
             foreach (var b in bullets) b.Mesh.QueueFree();
             bullets.Clear();
@@ -116,24 +114,21 @@ namespace BunkerBuster
             AlertLevel = Undetected; AlertTimer = 0; lastKnown = null; reinforced = false; report = null;
             chaseField = null; chaseTimer = 0; stepTimer = 0;
             if (theme.StartOnCaution) { AlertLevel = Caution; AlertTimer = 60; }
-            UpdateSprites();   // place the sprites now so nothing sits at the origin during the briefing
+            animDt = 0;
+            UpdateModels();   // place the models now so nothing sits at the origin during the briefing
         }
 
         Guard Make(double x, double z, int cell, double yaw)
         {
             var g = new Guard { X = x, Z = z, Cell = cell, Yaw = yaw, Wait = 1 + rng.NextDouble() * 3, Look = rng.NextDouble(), Pose = rng.Next(3) };
-            g.Sprite = new Sprite3D
-            {
-                Texture = sheet, RegionEnabled = true, RegionRect = new Rect2(0, 0, 48, 89),
-                Billboard = BaseMaterial3D.BillboardModeEnum.FixedY, TextureFilter = BaseMaterial3D.TextureFilterEnum.Nearest,
-                PixelSize = .049f, AlphaCut = SpriteBase3D.AlphaCutMode.Discard, Shaded = true,
-            };
+            g.Model = new GuardModel { Name = "Guard" };
+            g.Model.Build((float)g.Look, g.Pose);
             g.Icon = new Sprite3D
             {
                 Billboard = BaseMaterial3D.BillboardModeEnum.Enabled, TextureFilter = BaseMaterial3D.TextureFilterEnum.Nearest,
                 PixelSize = .045f, Visible = false, NoDepthTest = true, AlphaCut = SpriteBase3D.AlphaCutMode.Discard,
             };
-            AddChild(g.Sprite);
+            AddChild(g.Model);
             AddChild(g.Icon);
             return g;
         }
@@ -508,7 +503,8 @@ namespace BunkerBuster
             Separate();
             UpdateReport(dt);
             StepBullets(dt);
-            UpdateSprites();
+            animDt = dt;
+            UpdateModels();
         }
 
         void Separate()
@@ -606,50 +602,38 @@ namespace BunkerBuster
 
         public int Downed => Guards.Count(g => !g.Alive);
 
-        // ---------- sprites ----------
+        // ---------- 3D soldier models ----------
 
-        void UpdateSprites()
+        double animDt;
+
+        /// <summary>Places every soldier model and drives its animation from the AI state.</summary>
+        void UpdateModels()
         {
-            var cam = Player.Camera;
-            if (cam == null) return;
-            Vector3 camRight = cam.GlobalTransform.Basis.X;
             foreach (var g in Guards)
             {
-                var s = g.Sprite;
-                if (!g.Alive)
+                var m = g.Model;
+                m.Position = new Vector3((float)g.X, 1, (float)g.Z);   // feet on top of the floor voxels
+                m.Rotation = new Vector3(0, (float)g.Yaw, 0);          // model faces +Z, so this matches (sin yaw, cos yaw)
+                double dx = Player.X - g.X, dz = Player.Z - g.Z, dist = Math.Max(.5, Math.Sqrt(dx * dx + dz * dz));
+                var a = new GuardAnim
                 {
-                    if (s.Texture != downed)
-                    {
-                        s.Texture = downed;
-                        s.RegionEnabled = false;
-                        s.FlipH = g.Pose == 1;
-                    }
-                    // drop from standing to lying as Fall goes 0 -> 1
-                    float h = 23 * .049f;
-                    s.Position = new Vector3((float)g.X, 1 + h / 2 + (float)(1 - g.Fall) * 1.5f, (float)g.Z);
-                    g.Icon.Visible = false;
-                    continue;
-                }
-                double fx = Math.Sin(g.Yaw), fz = Math.Cos(g.Yaw);
-                double tx = Player.X - g.X, tz = Player.Z - g.Z, tl = Math.Sqrt(tx * tx + tz * tz);
-                if (tl == 0) tl = 1;
-                double toward = (fx * tx + fz * tz) / tl;
-                int row, col;
-                bool flip = false;
-                if (toward > .72) row = 0;
-                else if (toward < -.72) row = 1;
-                else { row = 2; flip = fx * camRight.X + fz * camRight.Z < 0; }
-                if (g.Muzzle > 0) col = 5;
-                else if (g.Aim > 0) col = 4;
-                else col = g.Pace > .15 ? (int)(g.Gait % 4) : 0;
-                s.RegionRect = new Rect2(col * 48, row * 89, 48, 89);
-                s.FlipH = flip;
-                s.Modulate = g.Impact > 0 ? new Color(1.6f, .7f, .7f) : Colors.White;
-                s.Position = new Vector3((float)g.X, 1 + 89 * .049f / 2, (float)g.Z);
+                    Pace = (float)g.Pace,
+                    Gait = (float)g.Gait,
+                    Aim = (float)g.Aim,
+                    Muzzle = (float)g.Muzzle,
+                    Impact = (float)g.Impact,
+                    Fall = (float)g.Fall,
+                    Alive = g.Alive,
+                    Alert = AlertLevel > Undetected,
+                    AimPitch = (float)Math.Atan2(Player.Eye - 3.6, dist),
+                    HeadYaw = g.Alive && g.Aim <= 0 && g.Pace < .1 ? (float)(Math.Sin(g.Scan * 1.3 + g.Look * 6) * .35) : 0,
+                };
+                m.Animate(animDt, a);
+                if (!g.Alive) { g.Icon.Visible = false; continue; }
                 if (g.Spot > 0) { g.Icon.Texture = iconSpotted; g.Icon.Visible = true; }
                 else if (g.Query > 0) { g.Icon.Texture = iconHeard; g.Icon.Visible = true; }
                 else g.Icon.Visible = false;
-                g.Icon.Position = s.Position + Vector3.Up * 3;
+                g.Icon.Position = m.Position + Vector3.Up * 5.1f;
             }
         }
     }
