@@ -10,8 +10,11 @@ Current version: **g2** (Godot builds are numbered g1, g2, … so they don't cla
 - **.NET 8 SDK**: https://dotnet.microsoft.com/en-us/download/dotnet/8.0 → SDK → Windows x64 installer.
 
 ## Run it
-1. Open Godot (.NET), click **Import**, pick this folder's `project.godot`.
-2. Press **F5** (or the ▶ button top right).
+- Double-click **Play Bunker Buster.bat** (builds the C# and starts the game), or
+- open Godot (.NET), click **Import**, pick `project.godot`, press **F5**.
+
+## Make a shareable build
+Double-click `tools\export.bat`. Result: `builds\BunkerBuster-windows.zip` (unzip, run `BunkerBuster.exe`; no install needed).
 
 ## Check it
 Double-click `tools\check.bat`. It compiles the C#, imports the assets and runs the self-tests (the C# map and level
