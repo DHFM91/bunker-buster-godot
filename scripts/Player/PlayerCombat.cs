@@ -32,6 +32,8 @@ namespace BunkerBuster
         public int Hp = 100, Magazine = MagazineSize, Reserve = 144, Charges = 10, GrenadeCount = Grenades;
         public double Cooldown, Reload, Flash, Hurt, ThrowCool;
         public bool Active;
+        /// <summary>False until the fire button is released after (re)starting play.</summary>
+        public bool TriggerArmed;
         readonly Random rng = new Random();
 
         sealed class Charge { public Vector3 P; public float Dx, Dz; public double Plant, Fuse; public Sprite3D Sprite; }
@@ -105,6 +107,22 @@ namespace BunkerBuster
         }
 
         // ---------- breach charge ----------
+
+        /// <summary>Is the player aiming at a wall or gate close enough to plant on (and free to plant)?</summary>
+        public bool CanPlantHere()
+        {
+            if (!Active || charge != null || Charges == 0) return false;
+            var hit = Destruction.Trace(Eye, Player.LookDirection, PlantRange);
+            return Breachable(hit.Material);
+        }
+
+        /// <summary>Steady status line while a charge is being planted or counting down (null when none).</summary>
+        public string ChargeStatus => charge == null ? null
+            : charge.Plant > 0 ? "PLANTING CHARGE" : "CHARGE ARMED  " + Math.Max(0, charge.Fuse).ToString("0.0") + " S";
+
+        /// <summary>Plant progress (0-1) then fuse remaining (1-0); -1 with no charge.</summary>
+        public float ChargeProgress => charge == null ? -1
+            : charge.Plant > 0 ? (float)(1 - charge.Plant / PlantTime) : (float)(charge.Fuse / FuseTime);
 
         static bool Breachable(byte m) => m == 2 || m == 10 || m == 11;
 
@@ -335,7 +353,11 @@ namespace BunkerBuster
                     Magazine += rounds; Reserve -= rounds;
                 }
             }
-            if (Active && Input.IsActionPressed("fire") && Input.MouseMode == Input.MouseModeEnum.Captured) Fire();
+            // holding the button fires, but only after it has been let go once since deploying/resuming,
+            // so the click that starts the level never fires a round (a gunshot would bring guards running)
+            bool held = Input.IsActionPressed("fire");
+            if (!held) TriggerArmed = true;
+            if (Active && TriggerArmed && held && Input.MouseMode == Input.MouseModeEnum.Captured) Fire();
             StepCharge(dt);
             if (!Active) return;
             StepGrenades(dt);

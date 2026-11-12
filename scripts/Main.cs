@@ -120,14 +120,15 @@ namespace BunkerBuster
                     }
                     smokeStep++; break;
                 case 1:
-                    if (smokeTime < .5) break;
+                    if (smokeTime < 3.5) break;
+                    SmokeLog($"after 3s standing still at spawn: alert {GuardDirector.Phases[guards.AlertLevel].Name}, guards who see you {guards.Guards.Count(g => g.Saw)}, hp {combat.Hp}, mag {combat.Magazine}");
                     var hit = destruction.Trace(new Vector3((float)player.X, (float)player.Eye, (float)player.Z), player.LookDirection, 60);
                     SmokeLog($"aim ray hits material {hit.Material} at {hit.T:0.0}m");
                     for (int i = 0; i < 6; i++) { combat.Cooldown = 0; combat.Fire(); }
                     SmokeLog($"fired 6: magazine {combat.Magazine}, concrete destroyed {destruction.Blocks}, alert {GuardDirector.Phases[guards.AlertLevel].Name}");
                     smokeStep++; break;
                 case 2:
-                    if (smokeTime < 1.5) break;
+                    if (smokeTime < 4.5) break;
                     {
                         // step up to the wall so it's within planting range
                         var eye = new Vector3((float)player.X, (float)player.Eye, (float)player.Z);
@@ -144,26 +145,26 @@ namespace BunkerBuster
                     SmokeLog($"plant charge: charges left before fuse {combat.Charges}");
                     smokeStep++; break;
                 case 3:
-                    if (smokeTime < 5) break;
+                    if (smokeTime < 8) break;
                     SmokeLog($"after charge: charges {combat.Charges}, concrete destroyed {destruction.Blocks}, hp {combat.Hp}, alert {GuardDirector.Phases[guards.AlertLevel].Name}, chunks dirty {world.DirtyChunks.Count}");
                     player.Yaw = Mathf.Pi; player.Pitch = .25f;
                     combat.ThrowGrenade();
                     SmokeLog($"grenade thrown: {combat.GrenadeCount} left");
                     smokeStep++; break;
                 case 4:
-                    if (smokeTime < 9) break;
+                    if (smokeTime < 12) break;
                     SmokeLog($"after grenade: concrete destroyed {destruction.Blocks}, hp {combat.Hp}, downed {guards.Downed}, alert {GuardDirector.Phases[guards.AlertLevel].Name}");
                     smokeStep++; break;
                 case 5:
                     // walk forward into the base for a few seconds
                     Input.ActionPress("move_forward");
-                    if (smokeTime < 13) break;
+                    if (smokeTime < 16) break;
                     Input.ActionRelease("move_forward");
                     double moved = Math.Sqrt((player.X - level.ExtractionX) * (player.X - level.ExtractionX) + (player.Z - level.ExtractionZ) * (player.Z - level.ExtractionZ));
                     SmokeLog($"walked: {moved:0.0}m from the pad, hp {combat.Hp}, alert {GuardDirector.Phases[guards.AlertLevel].Name}, state {state}");
                     smokeStep++; break;
                 case 6:
-                    if (smokeTime < 25) break;
+                    if (smokeTime < 28) break;
                     int moving = guards.Guards.Count(g => g.Alive && g.Pace > .1);
                     SmokeLog($"after 12s more: guards {guards.Guards.Count}, alive {guards.Guards.Count(g => g.Alive)}, moving {moving}, hp {combat.Hp}, alert {GuardDirector.Phases[guards.AlertLevel].Name}, state {state}, fps {Engine.GetFramesPerSecond()}");
                     string dir = ProjectSettings.GlobalizePath("res://logs");
@@ -201,7 +202,7 @@ namespace BunkerBuster
             if (e is InputEventMouseButton mb && mb.Pressed && mb.ButtonIndex == MouseButton.Left)
             {
                 if (state == State.Briefing || state == State.Paused) { Deploy(); GetViewport().SetInputAsHandled(); }
-                else if (state == State.Playing) combat.Fire();   // a quick click between frames still fires
+                else if (state == State.Playing && combat.TriggerArmed) combat.Fire();   // a quick click between frames still fires
                 else if (state == State.Won) { levelNumber++; theme = PickTheme(); NewLevel(); }
                 else if (state == State.Lost) { levelNumber = 1; levelsCleared = 0; runTotal = 0; runTime = 0; theme = Theme.All[0]; NewLevel(); }
             }
@@ -226,6 +227,7 @@ namespace BunkerBuster
         {
             state = State.Playing;
             combat.Active = true;
+            combat.TriggerArmed = false;
             hud.HideOverlay();
             Input.MouseMode = Input.MouseModeEnum.Captured;
         }
@@ -271,16 +273,21 @@ namespace BunkerBuster
             player.Camera.HOffset = (float)(rng.NextDouble() - .5) * k;
             player.Camera.VOffset = (float)(rng.NextDouble() - .5) * k;
 
+            // objective compass, as in the browser HUD: heading, an arrow toward the target, distance in metres (2 voxels = 1 m)
             double tx = hasIntel ? level.ExtractionX : level.IntelX, tz = hasIntel ? level.ExtractionZ : level.IntelZ;
-            double dist = Math.Sqrt((tx - player.X) * (tx - player.X) + (tz - player.Z) * (tz - player.Z));
-            double heading = Math.Atan2(-(tx - player.X), -(tz - player.Z));
-            double rel = Mathf.Wrap((float)(heading - player.Yaw), -Mathf.Pi, Mathf.Pi);
-            string arrow = Math.Abs(rel) < .4 ? "↑" : rel > 0 ? (rel > 2.4 ? "↓" : "←") : (rel < -2.4 ? "↓" : "→");
-            hud.SetStatus(
-                $"LEVEL {levelNumber} · {theme.Name}\n{(hasIntel ? "EXTRACT: get to the green pad" : "FIND THE INTEL (orange case)")}  {arrow} {dist:0}m{(player.Crouched ? "\nCROUCHED" : "")}",
-                $"{ScoreCalculator.FormatTime(levelTime)}\nBunker Buster {Version} · {Engine.GetFramesPerSecond()} fps");
-            string ammo = combat.Reload > 0 ? "RELOADING" : $"{combat.Magazine} / {combat.Reserve}";
-            hud.SetKit($"{ammo}\n{combat.Charges} CHG · {combat.GrenadeCount} GRN", combat.Hp, combat.Hurt);
+            double dx = tx - player.X, dz = tz - player.Z, dist = Math.Sqrt(dx * dx + dz * dz);
+            double fwdX = -Math.Sin(player.Yaw), fwdZ = -Math.Cos(player.Yaw), rightX = Math.Cos(player.Yaw), rightZ = -Math.Sin(player.Yaw);
+            float arrowAngle = (float)Math.Atan2(dx * rightX + dz * rightZ, dx * fwdX + dz * fwdZ);
+            hud.SetCompass((Math.PI - player.Yaw) * 180 / Math.PI, arrowAngle, (hasIntel ? "EXTRACT " : "INTEL ") + Math.Round(dist / 2) + " M");
+            hud.SetLevel(levelNumber, hasIntel ? "02 · RETURN TO EXTRACTION" : "01 · RECOVER INTEL", theme.Name);
+            hud.SetVitals(combat.Hp, combat.Hurt);
+            string ammo = combat.Reload > 0 ? "RELOAD" : $"{combat.Magazine:00}/{combat.Reserve}";
+            hud.SetKit($"{ammo}  ·  {combat.Charges} CHG  ·  {combat.GrenadeCount} GRN (PRESS G)");
+            hud.SetDebug($"{ScoreCalculator.FormatTime(levelTime)}   ·   {Version}   ·   {Engine.GetFramesPerSecond()} fps{(player.Crouched ? "   ·   CROUCHED" : "")}");
+            hud.Status = state == State.Playing ? combat.ChargeStatus : null;
+            hud.SetChargeMeter(state == State.Playing ? combat.ChargeProgress : -1);
+            bool canPlant = state == State.Playing && combat.CanPlantHere();
+            hud.SetPrompt(canPlant ? "Q" : null, "PLANT CHARGE");
             var P = GuardDirector.Phases[guards.AlertLevel];
             hud.SetAlert(guards.AlertLevel, P.Name, guards.AlertTimer, P.Time > 0 ? guards.AlertTimer / P.Time : 0);
         }
