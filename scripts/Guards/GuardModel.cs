@@ -309,7 +309,7 @@ namespace BunkerBuster
             Box(head, skin, 0.46f, 0.46f, 0.46f, 0f, 0.12f, 0.1f);                       // face
             Box(head, _mask, 0.5f, 0.22f, 0.5f, 0f, -0.01f, 0.1f);                       // balaclava lower half
             Shadow(Sph(head, ps.Camo, 0.5f, 0.78f, 0.52f, 0.85f, 0f, 0.27f, -0.06f));   // helmet shell with cloth cover
-            Box(head, _strap, 0.74f, 0.05f, 0.8f, 0f, 0.4f, -0.06f);                     // helmet cover band
+            Box(head, _strap, 0.8f, 0.06f, 0.87f, 0f, 0.28f, -0.06f);                    // helmet cover band (at the shell's widest point)
             BoxR(head, ps.Helmet, 0.7f, 0.04f, 0.14f, 0f, 0.3f, 0.38f, 8f, 0f, 0f);      // brim
             Box(head, _gun, 0.14f, 0.1f, 0.1f, 0f, 0.36f, 0.43f);                        // NVG mount
             Box(head, _strap, 0.8f, 0.08f, 0.84f, 0f, 0.17f, -0.06f);                    // goggles strap

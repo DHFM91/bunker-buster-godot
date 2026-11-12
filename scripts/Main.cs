@@ -42,6 +42,11 @@ namespace BunkerBuster
                 RunSelfTests();
                 return;
             }
+            if (OS.GetCmdlineUserArgs().Contains("--modelshots"))
+            {
+                AddChild(new ModelShots { Name = "ModelShots" });
+                return;
+            }
             smoke = OS.GetCmdlineUserArgs().Contains("--smoketest");
             world = new VoxelWorld();
             view = new WorldView { Name = "WorldView", World = world };
