@@ -16,6 +16,8 @@ Current version: **g5** (Godot builds are numbered g1, g2, … so they don't cla
 ## Make a shareable build
 Double-click `tools\export.bat`. Result: `builds\BunkerBuster-windows.zip` (unzip, run `BunkerBuster.exe`; no install needed).
 
+For Macs, double-click `tools\export-mac.bat` (run `export.bat` once first so the export templates are installed). Result: `builds\BunkerBuster-mac.zip`, one `Bunker Buster.app` for Intel and Apple Silicon. It is ad-hoc signed but not notarized, so on first launch players use System Settings > Privacy & Security > Open Anyway (or `xattr -dr com.apple.quarantine` if macOS calls it damaged).
+
 ## Check it
 Double-click `tools\check.bat`. It compiles the C#, imports the assets and runs the self-tests (the C# map and level
 generators against the browser game's own output). The report lands in `logs\check.txt`.
