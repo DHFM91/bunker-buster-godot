@@ -106,6 +106,14 @@ namespace BunkerBuster
             return false;
         }
 
+        /// <summary>Overwrites the whole board (used by the automated test to put the board back as it was).</summary>
+        public async Task<bool> Replace(List<ScoreEntry> list)
+        {
+            var (ok, _) = await Request(HttpClient.Method.Put, Serialize(list));
+            if (ok) Board = list.ToList();
+            return ok;
+        }
+
         /// <summary>Adds an entry: re-reads the board right before writing, merges, and saves the top 10.</summary>
         public async Task<bool> Submit(ScoreEntry entry)
         {

@@ -39,6 +39,29 @@ namespace BunkerBuster
         readonly System.Collections.Generic.List<double> benchFrames = new System.Collections.Generic.List<double>();
         double smokeTime;
         int smokeStep, smokeMag;
+        bool smokeBoardTest, smokeBoardDone;
+
+        /// <summary>
+        /// Saves a test score through the same path the initials screen uses, reads it back, then
+        /// restores the board exactly as it was so the real leaderboard is untouched.
+        /// </summary>
+        async void SmokeBoardTest()
+        {
+            await leaderboard.Fetch();
+            var before = leaderboard.Board.ToList();
+            SmokeLog($"leaderboard before: online {leaderboard.Online}, {before.Count} entries");
+            bool saved = await leaderboard.Submit(new ScoreEntry { Name = "TST", Score = 4321, Time = 61.5, Levels = 1 });
+            await leaderboard.Fetch();
+            bool found = leaderboard.Board.Any(e => e.Name == "TST" && e.Score == 4321);
+            SmokeLog($"leaderboard submit: saved {saved}, read back {found}, {leaderboard.Board.Count} entries");
+            bool restored = await leaderboard.Replace(before);
+            await leaderboard.Fetch();
+            SmokeLog($"leaderboard restored: {restored}, now {leaderboard.Board.Count} entries (was {before.Count})");
+            smokeStep = 6; smokeTime = 99;
+            smokeBoardTest = false;
+            smokeBoardDone = true;
+            SmokeStep(0);
+        }
         double smokeMaxFeet;
         readonly System.Text.StringBuilder smokeLog = new System.Text.StringBuilder();
 
@@ -170,6 +193,7 @@ namespace BunkerBuster
             switch (smokeStep)
             {
                 case 0:
+                    _ = leaderboard.Fetch();
                     SmokeLog($"level built: {level.Theme.Name}, guards {guards.Guards.Count}, lamps {level.Lamps.Count}, hp {combat.Hp}, mag {combat.Magazine}");
                     // turn until the nearest thing in view is breakable concrete within 12 m
                     player.Pitch = -.05f;
@@ -183,6 +207,7 @@ namespace BunkerBuster
                     smokeStep++; break;
                 case 1:
                     if (smokeTime < 3.5) break;
+                    SmokeLog($"leaderboard: key file {(leaderboard.HasKey ? "found" : "MISSING")}, online {leaderboard.Online}, {leaderboard.Board.Count} entries (read only, nothing written)");
                     SmokeLog($"after 3s standing still at spawn: alert {GuardDirector.Phases[guards.AlertLevel].Name}, guards who see you {guards.Guards.Count(g => g.Saw)}, hp {combat.Hp}, mag {combat.Magazine}");
                     var hit = destruction.Trace(new Vector3((float)player.X, (float)player.Eye, (float)player.Z), player.LookDirection, 60);
                     SmokeLog($"aim ray hits material {hit.Material} at {hit.T:0.0}m");
@@ -324,7 +349,13 @@ namespace BunkerBuster
             double dt = Math.Min(delta, .05);
             if (smoke && smokeStep < 7)
             {
-                if (state != State.Playing) { SmokeLog($"run ended early: {state}"); smokeStep = 6; smokeTime = 99; }
+                if (state != State.Playing && !smokeBoardTest && !smokeBoardDone)
+                {
+                    SmokeLog($"run ended early: {state} (run total {runTotal:N0})");
+                    smokeBoardTest = true;
+                    SmokeBoardTest();
+                }
+                if (smokeBoardTest) return;
                 SmokeStep(dt);
             }
             if (state == State.Playing)

@@ -1,6 +1,6 @@
 # Bunker Buster (Godot): next session
 
-Start here. Current version: **g4**. Browser reference game: DHFM91/bunker-buster (v19).
+Start here. Current version: **g5**. Browser reference game: DHFM91/bunker-buster (v19).
 
 ## Where things are
 - Repo: DHFM91/bunker-buster-godot (not linked anywhere public until it's ready to share).
@@ -16,6 +16,6 @@ Start here. Current version: **g4**. Browser reference game: DHFM91/bunker-buste
 
 ## Status
 - Done: level generator (identical to browser), voxel chunks with lighting, movement, shooting, breach charges, grenades, fuel drums, structural collapse, full guard AI, scoring, campaign themes, palettes, night vision, HUD, sound, Windows export.
-- Next: global leaderboard in its own extendsclass bin created with David's account key (key used once, never stored in the game or repo; only a bin-scoped key goes in the game). Also look at the worst-1% frame dip from g4's textures (shader compile hitches?).
+- Leaderboard: private bin b83713eff12d (created with David's account key, which is not stored anywhere). The bin's own Security-key is only in `leaderboard.key` on bigwater (gitignored; export preset includes it). If that file is lost, create a new private bin and update Leaderboard.Url. Also look at the worst-1% frame dip from g4's textures (shader compile hitches?).
 - Not yet: leaderboard (LeaderboardClient with HttpRequest; bin `json.extendsclass.com/bin/26db85ce0e56`, cut HTML after the JSON), initials entry, results-screen polish, bullet-hole/scorch decals, wall detail (stains, pipes, hazard stripes), guard corpse poses, touch/Android, settings menu (mouse sensitivity, volume, fullscreen).
 - Browser NEXT_SESSION priorities still apply (smarter soldiers, more map features) once the port reaches parity.
