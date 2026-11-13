@@ -10,9 +10,9 @@ namespace BunkerBuster
     /// </summary>
     public partial class Main : Node3D
     {
-        public const string Version = "g4";
+        public const string Version = "g5";
 
-        enum State { Briefing, Playing, Paused, Won, Lost }
+        enum State { Briefing, Playing, Paused, Won, Lost, RunOver, Initials }
 
         VoxelWorld world;
         WorldView view;
@@ -24,6 +24,9 @@ namespace BunkerBuster
         Effects fx;
         Sfx sfx;
         Hud hud;
+        Leaderboard leaderboard;
+        string initials = "", runSummary = "";
+        ScoreEntry justAdded;
         Level level;
         Theme theme;
         readonly Random rng = new Random();
@@ -68,6 +71,8 @@ namespace BunkerBuster
             AddChild(guards);
             hud = new Hud { Name = "Hud" };
             AddChild(hud);
+            leaderboard = new Leaderboard { Name = "Leaderboard" };
+            AddChild(leaderboard);
             var gunLayer = new CanvasLayer { Name = "GunLayer", Layer = 0 };
             AddChild(gunLayer);
             gun = new ViewModel { Name = "ViewModel" };
@@ -274,16 +279,20 @@ namespace BunkerBuster
                 if (state == State.Briefing || state == State.Paused) { Deploy(); GetViewport().SetInputAsHandled(); }
                 else if (state == State.Playing) combat.TriggerPulled();   // single shot or start of a burst (auto is held)
                 else if (state == State.Won) { levelNumber++; theme = PickTheme(); NewLevel(); }
-                else if (state == State.Lost) { levelNumber = 1; levelsCleared = 0; runTotal = 0; runTime = 0; theme = Theme.All[0]; NewLevel(); }
+                else if (state == State.RunOver) NewRun();
             }
             if (e is InputEventKey key && key.Pressed && !key.Echo)
             {
+                if (state == State.Initials) { TypeInitial(key); return; }
+                if (key.Keycode == Key.E && (state == State.Won || state == State.Paused)) { EndRun(state == State.Paused ? "Run ended from the pause menu. The level in progress isn't scored." : "Run ended between levels."); return; }
+                if ((key.Keycode == Key.Enter || key.Keycode == Key.KpEnter) && state == State.RunOver) { NewRun(); return; }
                 if (key.Keycode == Key.Escape && state == State.Playing)
                 {
                     state = State.Paused;
                     combat.Active = false;
                     Input.MouseMode = Input.MouseModeEnum.Visible;
-                    hud.ShowOverlay("PAUSED", $"{theme.Name}  ·  level {levelNumber}", "Click to resume");
+                    hud.ShowOverlay("PAUSED", $"{theme.Name}  ·  level {levelNumber}\nRun total so far: {runTotal:N0} over {levelsCleared} level{(levelsCleared == 1 ? "" : "s")}.",
+                        "Click to resume   ·   E: end run and submit score");
                 }
                 if (state != State.Playing) return;
                 if (key.Keycode == Key.F9) { NewLevel(); return; }
@@ -400,9 +409,84 @@ namespace BunkerBuster
             string table = string.Join("\n", r.Lines.Select(l => $"{l.Label,-20} {l.Detail,-14} {l.Points,8:N0}"));
             table += $"\n\nSubtotal {r.Subtotal:N0}   damage −{r.Cut}% ({r.Penalty:N0})   level ×{r.Multiplier:0.0}\nLEVEL SCORE {r.Total:N0}     RUN TOTAL {runTotal:N0}";
             if (won)
-                hud.ShowOverlay($"LEVEL {levelNumber} CLEAR", $"Intel secured in {ScoreCalculator.FormatTime(levelTime)}.\n\n{table}", "Click for the next base");
+                hud.ShowOverlay($"LEVEL {levelNumber} CLEAR", $"Intel secured in {ScoreCalculator.FormatTime(levelTime)}.\n\n{table}",
+                    "Click: next base   ·   E: end run and submit score");
             else
-                hud.ShowOverlay("MISSION FAILED", $"{why ?? "You were hit before reaching extraction."} Run over: {levelsCleared} level{(levelsCleared == 1 ? "" : "s")} cleared.\n\n{table}", "Click for a new run");
+                EndRun($"MISSION FAILED. {why ?? "You were hit before reaching extraction."}\n\n{table}");
+        }
+
+        // ---------- end of run, initials and the global board ----------
+
+        void NewRun()
+        {
+            levelNumber = 1; levelsCleared = 0; runTotal = 0; runTime = 0; theme = Theme.All[0];
+            NewLevel();
+        }
+
+        /// <summary>Ends the run (by choice or by death), banks the total and shows the global board.</summary>
+        async void EndRun(string header)
+        {
+            state = State.RunOver;
+            combat.Active = false;
+            Input.MouseMode = Input.MouseModeEnum.Visible;
+            justAdded = null;
+            runSummary = $"{header}\n\nRUN TOTAL {runTotal:N0}   ·   {levelsCleared} level{(levelsCleared == 1 ? "" : "s")} cleared   ·   {ScoreCalculator.FormatTime(runTime)}";
+            hud.ShowOverlay("RUN OVER", runSummary + "\n\nGLOBAL TOP 10 · loading…", "");
+            await leaderboard.Fetch();
+            if (state != State.RunOver) return;
+            if (leaderboard.Online && leaderboard.Qualifies(runTotal))
+            {
+                state = State.Initials;
+                initials = "";
+                ShowInitials();
+            }
+            else ShowBoard();
+        }
+
+        void ShowInitials()
+        {
+            string slots = string.Join(" ", Enumerable.Range(0, 3).Select(i => i < initials.Length ? initials[i].ToString() : "_"));
+            hud.ShowOverlay("NEW HIGH SCORE", runSummary + "\n\nYou made the global top 10. Enter your initials:\n\n" + slots + "\n\n" + BoardText(),
+                "Type up to 3 letters or digits   ·   Backspace to fix   ·   Enter to save");
+        }
+
+        async void TypeInitial(InputEventKey key)
+        {
+            if (key.Keycode == Key.Backspace && initials.Length > 0) initials = initials.Substring(0, initials.Length - 1);
+            else if ((key.Keycode == Key.Enter || key.Keycode == Key.KpEnter) && initials.Length > 0)
+            {
+                state = State.RunOver;
+                justAdded = new ScoreEntry { Name = initials, Score = runTotal, Time = runTime, Levels = levelsCleared };
+                hud.ShowOverlay("RUN OVER", runSummary + "\n\nSaving…", "");
+                bool saved = await leaderboard.Submit(justAdded);
+                ShowBoard(saved ? null : "Couldn't reach the leaderboard: your score wasn't saved.");
+                return;
+            }
+            else
+            {
+                char c = (char)key.Unicode;
+                if (char.IsLetterOrDigit(c) && c < 128 && initials.Length < 3) initials += char.ToUpperInvariant(c);
+            }
+            ShowInitials();
+        }
+
+        string BoardText()
+        {
+            var sb = new System.Text.StringBuilder();
+            sb.AppendLine(leaderboard.Online ? "GLOBAL TOP 10" : leaderboard.HasKey ? "GLOBAL TOP 10 · offline, showing last known" : "GLOBAL TOP 10 · not available in this build");
+            for (int i = 0; i < Leaderboard.Size; i++)
+            {
+                var r = i < leaderboard.Board.Count ? leaderboard.Board[i] : null;
+                bool mine = r != null && justAdded != null && r.Name == justAdded.Name && r.Score == justAdded.Score;
+                string detail = r == null ? "" : r.Levels > 0 ? $"{r.Levels} LVL · {ScoreCalculator.FormatTime(r.Time)}" : "KIA";
+                sb.AppendLine($"{(mine ? ">" : " ")}{i + 1,2}. {(r?.Name ?? "---"),-3}  {detail,-16} {(r == null ? "" : r.Score.ToString("N0")),9}");
+            }
+            return sb.ToString().TrimEnd();
+        }
+
+        void ShowBoard(string note = null)
+        {
+            hud.ShowOverlay("RUN OVER", runSummary + (note != null ? "\n" + note : "") + "\n\n" + BoardText(), "Click or Enter for a new run");
         }
 
         /// <summary>Runs the C#-vs-browser checks and writes the report to logs/selftest.txt, then quits.</summary>

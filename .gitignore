@@ -13,3 +13,6 @@ obj/
 # Local builds and logs
 builds/
 logs/
+
+# Leaderboard bin key: local only, packed into exports, never committed
+leaderboard.key
