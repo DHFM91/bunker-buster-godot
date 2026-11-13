@@ -17,6 +17,7 @@ namespace BunkerBuster
             public readonly List<Vector3> Normals = new List<Vector3>();
             public readonly List<Vector2> Uvs = new List<Vector2>();
             public readonly List<Color> Colors = new List<Color>();
+            public readonly List<float> Tangents = new List<float>();
             public readonly List<int> Indices = new List<int>();
         }
 
@@ -58,6 +59,7 @@ namespace BunkerBuster
                 arrays[(int)Mesh.ArrayType.Normal] = b.Normals.ToArray();
                 arrays[(int)Mesh.ArrayType.TexUV] = b.Uvs.ToArray();
                 arrays[(int)Mesh.ArrayType.Color] = b.Colors.ToArray();
+                arrays[(int)Mesh.ArrayType.Tangent] = b.Tangents.ToArray();
                 arrays[(int)Mesh.ArrayType.Index] = b.Indices.ToArray();
                 mesh.AddSurfaceFromArrays(Mesh.PrimitiveType.Triangles, arrays);
                 mesh.SurfaceSetMaterial(mesh.GetSurfaceCount() - 1, materials[pair.Key]);
@@ -94,21 +96,37 @@ namespace BunkerBuster
         static void Quad(VoxelWorld w, Buffers b, Vector3 a, Vector3 c1, Vector3 c2, Vector3 c3, Vector3 n, bool shade, int ax, int ay, int az)
         {
             int start = b.Verts.Count;
-            foreach (var p in new[] { a, c1, c2, c3 })
-            {
-                b.Verts.Add(p);
-                b.Normals.Add(n);
-                // world-space UVs: 4 voxels per texture repeat, v runs down the wall
-                Vector2 uv = n.X != 0 ? new Vector2(p.Z, VoxelWorld.SizeY - p.Y)
-                    : n.Z != 0 ? new Vector2(p.X, VoxelWorld.SizeY - p.Y)
-                    : new Vector2(p.X, p.Z);
-                b.Uvs.Add(uv / 4f);
-                b.Colors.Add(shade ? CornerShade(w, p, n, ax, ay, az) : Colors.White);
-            }
+            // Tangent frame for the normal maps, matching the UV layout below: T = direction of +U,
+            // B = direction of +V; w says whether B = cross(N, T) or its opposite (the MikkTSpace convention).
+            Vector3 t = n.X != 0 ? new Vector3(0, 0, 1) : new Vector3(1, 0, 0);
+            Vector3 bt = n.Y != 0 ? new Vector3(0, 0, 1) : new Vector3(0, -1, 0);
+            float tw = n.Cross(t).Dot(bt) >= 0 ? 1 : -1;
+            // a faint per-block brightness variation so big walls don't look stamped out of one tile
+            var centre = (a + c2) * .5f - n * .5f;
+            uint h = VoxelWorld.H3((int)Mathf.Floor(centre.X), (int)Mathf.Floor(centre.Y), (int)Mathf.Floor(centre.Z));
+            float vary = .955f + (h % 10) * .009f;
+            AddCorner(w, b, a, n, shade, ax, ay, az, t, tw, vary);
+            AddCorner(w, b, c1, n, shade, ax, ay, az, t, tw, vary);
+            AddCorner(w, b, c2, n, shade, ax, ay, az, t, tw, vary);
+            AddCorner(w, b, c3, n, shade, ax, ay, az, t, tw, vary);
             // Two triangles, clockwise as seen from the front (Godot's front-face winding).
             // (the corners above run counter-clockwise when seen from outside, so they're added in reverse)
             b.Indices.Add(start); b.Indices.Add(start + 2); b.Indices.Add(start + 1);
             b.Indices.Add(start); b.Indices.Add(start + 3); b.Indices.Add(start + 2);
+        }
+
+        static void AddCorner(VoxelWorld w, Buffers b, Vector3 p, Vector3 n, bool shade, int ax, int ay, int az, Vector3 t, float tw, float vary)
+        {
+            b.Verts.Add(p);
+            b.Normals.Add(n);
+            // world-space UVs: 4 voxels per texture repeat, v runs down the wall
+            Vector2 uv = n.X != 0 ? new Vector2(p.Z, VoxelWorld.SizeY - p.Y)
+                : n.Z != 0 ? new Vector2(p.X, VoxelWorld.SizeY - p.Y)
+                : new Vector2(p.X, p.Z);
+            b.Uvs.Add(uv / 4f);
+            Color c = shade ? CornerShade(w, p, n, ax, ay, az) : Colors.White;
+            b.Colors.Add(new Color(c.R * vary, c.G * vary, c.B * vary));
+            b.Tangents.Add(t.X); b.Tangents.Add(t.Y); b.Tangents.Add(t.Z); b.Tangents.Add(tw);
         }
 
         /// <summary>

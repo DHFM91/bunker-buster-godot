@@ -533,7 +533,7 @@ namespace BunkerBuster
                 {
                     b.P += b.V * (float)(dt / 3);
                     double px = b.P.X - Player.X, pz = b.P.Z - Player.Z;
-                    if (Math.Sqrt(px * px + pz * pz) < .55 && b.P.Y > 1 && b.P.Y < Player.Eye + .35)
+                    if (Math.Sqrt(px * px + pz * pz) < .55 && b.P.Y > Player.Feet && b.P.Y < Player.Eye + .35)
                     {
                         b.Life = 0;
                         PlayerShot?.Invoke(12);

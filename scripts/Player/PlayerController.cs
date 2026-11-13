@@ -7,15 +7,24 @@ namespace BunkerBuster
     /// First-person movement and mouse look, ported from update() in bunker-buster.js:
     /// walk 6 voxels/s, crouch-walk 3, eye at 4.15 (2.65 crouched), collision against the voxel
     /// grid with the same canStand test, sliding along walls one axis at a time.
+    /// Space jumps (about 2 voxels high: enough to hop sandbag lines, rubble and crates), and you can
+    /// stand on top of things and drop off them.
     /// </summary>
     public partial class PlayerController : Node3D
     {
         public const double EyeStand = 4.15, EyeCrouch = 2.65, BodyStand = 4.4, BodyCrouch = 2.9;
         public const float MouseSensitivity = .0027f, PitchLimit = 1.12f;
+        public const double HeightStand = BodyStand - 1, HeightCrouch = BodyCrouch - 1;
+        public const double Gravity = 26, JumpSpeed = 10.6;
 
         public VoxelWorld World;
         public Camera3D Camera;
         public double X, Z, Eye = EyeStand;
+        /// <summary>Height of the feet (1 = the ground floor), vertical speed, and whether standing on something.</summary>
+        public double Feet = 1, Vy;
+        public bool OnGround = true;
+        /// <summary>Set for one frame when the player lands from a fall or jump (fall speed).</summary>
+        public double Landed;
         public float Yaw, Pitch;
         public bool Crouched;
         /// <summary>Distance walked this frame (guards hear footsteps from it later).</summary>
@@ -32,7 +41,7 @@ namespace BunkerBuster
 
         public void Spawn(double x, double z)
         {
-            X = x; Z = z; Eye = EyeStand; Yaw = Mathf.Pi; Pitch = 0; Crouched = false;   // face into the base (+z), toward the foyer exits
+            X = x; Z = z; Feet = 1; Vy = 0; OnGround = true; Eye = EyeStand; Yaw = Mathf.Pi; Pitch = 0; Crouched = false;   // face into the base (+z), toward the foyer exits
             ApplyTransform();
         }
 
@@ -48,9 +57,10 @@ namespace BunkerBuster
         public void Step(double dt)
         {
             bool wantCrouch = Input.IsActionPressed("crouch");
-            Crouched = wantCrouch || !World.CanStand(X, Z, BodyStand);
-            double eyeTarget = Crouched ? EyeCrouch : EyeStand;
-            Eye = Crouched ? eyeTarget : Eye + (eyeTarget - Eye) * Math.Min(1, dt * 18);
+            Crouched = wantCrouch || !World.FitsAt(X, Z, Feet, HeightStand);
+            double height = Crouched ? HeightCrouch : HeightStand;
+            double eyeTarget = Feet - 1 + (Crouched ? EyeCrouch : EyeStand);
+            Eye = Crouched || !OnGround ? eyeTarget : Eye + (eyeTarget - Eye) * Math.Min(1, dt * 18);
 
             float forward = Input.GetActionStrength("move_forward") - Input.GetActionStrength("move_back");
             float strafe = Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left");
@@ -59,11 +69,34 @@ namespace BunkerBuster
             double sin = Math.Sin(Yaw), cos = Math.Cos(Yaw);
             double fx = -sin, fz = -cos, rx = cos, rz = -sin;
             double mx = (fx * forward + rx * strafe) * speed, mz = (fz * forward + rz * strafe) * speed;
-            double oldX = X, oldZ = Z, top = Crouched ? BodyCrouch : BodyStand;
-            if (World.CanStand(X + mx, Z, top)) X += mx;
-            if (World.CanStand(X, Z + mz, top)) Z += mz;
-            Travel = Math.Sqrt((X - oldX) * (X - oldX) + (Z - oldZ) * (Z - oldZ));
+            double oldX = X, oldZ = Z;
+            if (World.FitsAt(X + mx, Z, Feet, height)) X += mx;
+            if (World.FitsAt(X, Z + mz, Feet, height)) Z += mz;
+            Travel = OnGround ? Math.Sqrt((X - oldX) * (X - oldX) + (Z - oldZ) * (Z - oldZ)) : 0;
             stridePhase += Travel * 2.8;
+
+            // jumping, falling and landing
+            Landed = 0;
+            if (dt > 0)
+            {
+                if (OnGround && Input.IsActionJustPressed("jump") && !Crouched) { Vy = JumpSpeed; OnGround = false; }
+                double ground = World.GroundUnder(X, Z, Feet + .01);
+                if (OnGround && ground < Feet - .01) OnGround = false;   // walked off an edge, or the floor was blown away
+                if (!OnGround)
+                {
+                    Vy -= Gravity * dt;
+                    double next = Feet + Vy * dt;
+                    if (Vy > 0 && !World.FitsAt(X, Z, next, height)) { Vy = 0; next = Feet; }   // head hit something
+                    ground = World.GroundUnder(X, Z, Feet + .01);
+                    if (Vy <= 0 && next <= ground)
+                    {
+                        Landed = -Vy;
+                        Feet = ground; Vy = 0; OnGround = true;
+                    }
+                    else Feet = next;
+                    Eye = Feet - 1 + (Crouched ? EyeCrouch : EyeStand);
+                }
+            }
             ApplyTransform();
         }
 

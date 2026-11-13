@@ -89,6 +89,31 @@ namespace BunkerBuster
             return true;
         }
 
+        /// <summary>
+        /// Does a body of this radius fit at (x, z) with its feet at height `feet` and the given height?
+        /// (feet = 1 is standing on the ground floor.)
+        /// </summary>
+        public bool FitsAt(double x, double z, double feet, double height, double radius = .44)
+        {
+            if (x < 1 + radius || z < 1 + radius || x > SizeX - 1 - radius || z > SizeZ - 1 - radius) return false;
+            int y0 = (int)Math.Floor(feet + .001), y1 = (int)Math.Ceiling(feet + height - .001) - 1;
+            for (int iy = Math.Max(1, y0); iy <= y1; iy++)
+                for (int iz = (int)Math.Floor(z - radius); iz <= (int)Math.Floor(z + radius); iz++)
+                    for (int ix = (int)Math.Floor(x - radius); ix <= (int)Math.Floor(x + radius); ix++)
+                        if (Tile(ix, iy, iz) != 0) return false;
+            return true;
+        }
+
+        /// <summary>The height of the highest solid surface under a body at (x, z) whose feet are at `feet`.</summary>
+        public double GroundUnder(double x, double z, double feet, double radius = .44)
+        {
+            for (int iy = (int)Math.Floor(feet - .001); iy >= 0; iy--)
+                for (int iz = (int)Math.Floor(z - radius); iz <= (int)Math.Floor(z + radius); iz++)
+                    for (int ix = (int)Math.Floor(x - radius); ix <= (int)Math.Floor(x + radius); ix++)
+                        if (Tile(ix, iy, iz) != 0) return iy + 1;
+            return 1;
+        }
+
         public void MarkDirty(int x, int z)
         {
             int cx = Math.Clamp(x, 0, SizeX - 1) / ChunkSize, cz = Math.Clamp(z, 0, SizeZ - 1) / ChunkSize;

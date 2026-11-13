@@ -3,7 +3,7 @@
 The desktop version of [Bunker Buster](https://github.com/DHFM91/bunker-buster), rebuilt in Godot 4 with C#.
 The browser game stays the reference: map generation and level layout are checked against it seed for seed.
 
-Current version: **g3** (Godot builds are numbered g1, g2, … so they don't clash with the browser game's v-numbers).
+Current version: **g4** (Godot builds are numbered g1, g2, … so they don't clash with the browser game's v-numbers).
 
 ## What you need
 - **Godot 4 .NET edition** (the Steam copy can't run C#): https://godotengine.org/download/windows/ → "Godot Engine – .NET". Unzip it into `C:\Godot\`.
@@ -29,6 +29,8 @@ generators against the browser game's own output). The report lands in `logs\che
 | R | reload |
 | Q | plant breach charge |
 | G | throw grenade |
+| Space | jump |
+| Mouse wheel | fire mode: single / 3-round burst / auto |
 | C | crouch |
 | Esc | pause |
 | F9 | new random base (testing) |
@@ -53,6 +55,7 @@ generators against the browser game's own output). The report lands in `logs\che
 | `assets/` | Textures, sprites and sounds exported from the browser game (`tools/asset-export.js`). |
 
 ## Version history
+- **g4:** fire modes on the mouse wheel (single, 3-round burst, automatic, with spread that builds in sustained fire); jumping (about 2 blocks: hop sandbags, rubble and crates, stand on things, drop off them); detailed 256 px PBR wall and prop textures generated at start-up (albedo, normal and roughness maps) with anisotropic filtering, per-block shade variation and back-face culling. Benchmark (`tools\benchmark.bat`): average fps unchanged (~310 on an RX 9060 XT), worst-1% frames ~100-110 vs ~170 before.
 - **g3:** detailed 3D soldiers (helmet, goggles, plate carrier, pouches, radio, rifle; four camouflage schemes and skin tones) with procedural animation: walk cycle, idle breathing and head scanning, low/ready carry, shouldered aim, recoil and muzzle flash, hit flinch and three death falls. HUD rebuilt like the browser version (objective compass arrow and distance, alert bar, vitals, carbine / breach kit with GRN (PRESS G), Q PLANT CHARGE prompt, charge meter). The click that starts a level no longer fires a round, so the first sentry doesn't come running.
 - **g2:** the game proper: shooting (each round knocks out a block of cracked concrete), breach charges, grenades, exploding fuel drums, structural collapse with falling debris and rubble piles, the full guard AI (four alert phases, hearing, sight, the one-second report window, reinforcements, sentries), dodgeable enemy rounds, health, the carbine viewmodel, sound, itemised scoring with the level multiplier, and runs that end when you die.
 - **g1:** first playable Godot build: random base from the browser game's generator, real 3D lighting (sun and shadows, sky, fog, wall lamps, ambient occlusion), walk and crouch, grab the intel and get back to the pad, endless levels with the seven themes. Guards stand at their posts but don't act yet; no shooting yet.

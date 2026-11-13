@@ -29,18 +29,30 @@ namespace BunkerBuster
 
         public override void _Ready()
         {
+            TextureForge.WarmAll();
             materials = new Material[16];
             for (int i = 0; i < materials.Length; i++)
             {
+                // Detailed 256 px PBR sets generated at start-up (albedo, normal and roughness maps),
+                // filtered with mipmaps + anisotropy so walls stay sharp at grazing angles.
                 var mat = new StandardMaterial3D
                 {
-                    TextureFilter = BaseMaterial3D.TextureFilterEnum.NearestWithMipmaps,
+                    TextureFilter = BaseMaterial3D.TextureFilterEnum.LinearWithMipmapsAnisotropic,
                     VertexColorUseAsAlbedo = true,
-                    CullMode = BaseMaterial3D.CullModeEnum.Disabled,
-                    Roughness = .92f,
+                    CullMode = BaseMaterial3D.CullModeEnum.Back,
+                    Roughness = 1,
                 };
-                if (TextureNames.TryGetValue(i, out var name))
-                    mat.AlbedoTexture = GD.Load<Texture2D>($"res://assets/textures/{name}.png");
+                if (i > 0 && i != 5 && TextureNames.ContainsKey(i))
+                {
+                    var (albedo, normal, rough) = TextureForge.Make(i);
+                    mat.AlbedoTexture = albedo;
+                    mat.NormalEnabled = true;
+                    mat.NormalTexture = normal;
+                    mat.NormalScale = 1.1f;
+                    mat.RoughnessTexture = rough;
+                    mat.RoughnessTextureChannel = BaseMaterial3D.TextureChannel.Red;
+                    if (i == 9 || i == 15 || i == 11 || i == 4 || i == 13) mat.Metallic = .25f;
+                }
                 if (i == 4) { mat.EmissionEnabled = true; mat.Emission = new Color(.05f, .35f, .2f); }
                 materials[i] = mat;
             }
@@ -79,7 +91,6 @@ namespace BunkerBuster
             {
                 var mat = (StandardMaterial3D)materials[i];
                 Color t = palette.Tints[i];
-                if (i == 15) t = new Color(t.R * 1.9f, t.G * .42f, t.B * .45f);
                 mat.AlbedoColor = t;
             }
             string moodId = level.Theme.Moods[rng.Next(level.Theme.Moods.Length)];

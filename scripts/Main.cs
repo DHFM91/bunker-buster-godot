@@ -10,7 +10,7 @@ namespace BunkerBuster
     /// </summary>
     public partial class Main : Node3D
     {
-        public const string Version = "g3";
+        public const string Version = "g4";
 
         enum State { Briefing, Playing, Paused, Won, Lost }
 
@@ -30,9 +30,13 @@ namespace BunkerBuster
         State state;
         int levelNumber = 1, levelsCleared, runTotal;
         double levelTime, runTime, shake;
-        bool hasIntel, smoke;
+        bool hasIntel, smoke, bench;
+        double benchTime;
+        bool benchShot;
+        readonly System.Collections.Generic.List<double> benchFrames = new System.Collections.Generic.List<double>();
         double smokeTime;
-        int smokeStep;
+        int smokeStep, smokeMag;
+        double smokeMaxFeet;
         readonly System.Text.StringBuilder smokeLog = new System.Text.StringBuilder();
 
         public override void _Ready()
@@ -48,6 +52,7 @@ namespace BunkerBuster
                 return;
             }
             smoke = OS.GetCmdlineUserArgs().Contains("--smoketest");
+            bench = OS.GetCmdlineUserArgs().Contains("--benchmark");
             world = new VoxelWorld();
             view = new WorldView { Name = "WorldView", World = world };
             AddChild(view);
@@ -83,7 +88,7 @@ namespace BunkerBuster
             destruction.Shake += s => shake = Math.Max(shake, s);
             destruction.HitsPlayer = p =>
             {
-                if (p.Y <= 1 || p.Y >= player.Eye + .4 || Math.Abs(p.X - player.X) >= .75 || Math.Abs(p.Z - player.Z) >= .75) return false;
+                if (p.Y <= player.Feet || p.Y >= player.Eye + .4 || Math.Abs(p.X - player.X) >= .75 || Math.Abs(p.Z - player.Z) >= .75) return false;
                 hud.Say("FALLING DEBRIS");
                 combat.Damage(8, "Crushed under falling concrete.");
                 return true;
@@ -94,7 +99,54 @@ namespace BunkerBuster
 
             theme = Theme.All[0];
             NewLevel();
-            if (smoke) { Deploy(); Input.MouseMode = Input.MouseModeEnum.Visible; }
+            if (smoke || bench) { Deploy(); Input.MouseMode = Input.MouseModeEnum.Visible; }
+            if (bench) { GetWindow().Size = new Vector2I(1600, 900); Engine.MaxFps = 0; DisplayServer.WindowSetVsyncMode(DisplayServer.VSyncMode.Disabled); }
+        }
+
+        /// <summary>
+        /// Frame-rate benchmark (run with `-- --benchmark`): fixed level, vsync off, 1600x900; the camera
+        /// sweeps through the foyer and down the main corridor for 12 s (guards active), then logs the
+        /// average fps, the 1% low and the draw-call count to logs/benchmark.txt.
+        /// </summary>
+        void BenchStep(double delta)
+        {
+            benchTime += delta;
+            if (benchTime > 1.5) benchFrames.Add(delta);   // skip warm-up
+            double t = Math.Min(benchTime, 13.5);
+            // walk forward from the pad into the base while slowly panning left and right
+            player.X = level.ExtractionX + Math.Sin(t * .35) * 2.5;
+            player.Z = level.ExtractionZ + t * 1.6;
+            if (!world.CanStand(player.X, player.Z, 4.4)) player.X = level.ExtractionX;
+            player.Yaw = (float)(Math.PI + Math.Sin(t * .6) * 1.1);
+            player.Pitch = (float)(Math.Sin(t * .9) * .15);
+            player.Step(0);
+            guards.Step(delta);
+            destruction.Step(delta);
+            if (benchTime > 7 && !benchShot)
+            {
+                benchShot = true;
+                string shotDir = ProjectSettings.GlobalizePath("res://logs");
+                System.IO.Directory.CreateDirectory(shotDir);
+                GetViewport().GetTexture().GetImage().SavePng(System.IO.Path.Combine(shotDir, "benchmark.png"));
+            }
+            if (benchTime < 13.5) return;
+            benchFrames.Sort();
+            double sum = 0; foreach (var f in benchFrames) sum += f;
+            double avg = benchFrames.Count / sum;
+            int n1 = Math.Max(1, benchFrames.Count / 100);
+            double worst = 0; for (int i = benchFrames.Count - n1; i < benchFrames.Count; i++) worst += benchFrames[i];
+            double low1 = n1 / worst;
+            string report = $"benchmark {Version}: {benchFrames.Count} frames, average {avg:0} fps, 1% low {low1:0} fps, " +
+                $"draw calls {Performance.GetMonitor(Performance.Monitor.RenderTotalDrawCallsInFrame)}, " +
+                $"primitives {Performance.GetMonitor(Performance.Monitor.RenderTotalPrimitivesInFrame)}, " +
+                $"video memory {Performance.GetMonitor(Performance.Monitor.RenderVideoMemUsed) / 1048576:0} MB, " +
+                $"adapter {RenderingServer.GetVideoAdapterName()}";
+            GD.Print(report);
+            string dir = ProjectSettings.GlobalizePath("res://logs");
+            System.IO.Directory.CreateDirectory(dir);
+            System.IO.File.AppendAllText(System.IO.Path.Combine(dir, "benchmark.txt"), DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "  " + report + "\n");
+            GetTree().Quit();
+            bench = false;
         }
 
         void SmokeLog(string line)
@@ -131,9 +183,16 @@ namespace BunkerBuster
                     SmokeLog($"aim ray hits material {hit.Material} at {hit.T:0.0}m");
                     for (int i = 0; i < 6; i++) { combat.Cooldown = 0; combat.Fire(); }
                     SmokeLog($"fired 6: magazine {combat.Magazine}, concrete destroyed {destruction.Blocks}, alert {GuardDirector.Phases[guards.AlertLevel].Name}");
+                    combat.Mode = PlayerCombat.FireMode.Burst; combat.TriggerArmed = true; combat.Cooldown = 0;
+                    smokeMag = combat.Magazine;
+                    Input.MouseMode = Input.MouseModeEnum.Captured;
+                    combat.TriggerPulled();
                     smokeStep++; break;
                 case 2:
                     if (smokeTime < 4.5) break;
+                    SmokeLog($"3-round burst: magazine {smokeMag} -> {combat.Magazine} (expect 3 fewer)");
+                    Input.MouseMode = Input.MouseModeEnum.Visible;
+                    combat.Mode = PlayerCombat.FireMode.Single;
                     {
                         // step up to the wall so it's within planting range
                         var eye = new Vector3((float)player.X, (float)player.Eye, (float)player.Z);
@@ -161,11 +220,14 @@ namespace BunkerBuster
                     SmokeLog($"after grenade: concrete destroyed {destruction.Blocks}, hp {combat.Hp}, downed {guards.Downed}, alert {GuardDirector.Phases[guards.AlertLevel].Name}");
                     smokeStep++; break;
                 case 5:
-                    // walk forward into the base for a few seconds
+                    // walk forward into the base for a few seconds, jumping once
                     Input.ActionPress("move_forward");
+                    if (smokeTime > 12.2 && smokeTime < 12.3) Input.ActionPress("jump"); else Input.ActionRelease("jump");
+                    smokeMaxFeet = Math.Max(smokeMaxFeet, player.Feet);
                     if (smokeTime < 16) break;
                     Input.ActionRelease("move_forward");
                     double moved = Math.Sqrt((player.X - level.ExtractionX) * (player.X - level.ExtractionX) + (player.Z - level.ExtractionZ) * (player.Z - level.ExtractionZ));
+                    SmokeLog($"jump: highest feet {smokeMaxFeet:0.00} (floor 1.00), back on the ground {player.OnGround} at {player.Feet:0.00}");
                     SmokeLog($"walked: {moved:0.0}m from the pad, hp {combat.Hp}, alert {GuardDirector.Phases[guards.AlertLevel].Name}, state {state}");
                     smokeStep++; break;
                 case 6:
@@ -182,7 +244,7 @@ namespace BunkerBuster
 
         void NewLevel()
         {
-            uint seed = (uint)rng.Next();
+            uint seed = bench ? 4242u : (uint)rng.Next();
             level = LevelBuilder.Build(world, theme, new Mulberry32(seed).AsFunc());
             view.Show(level, rng);
             destruction.SetMaterials(view.Materials);
@@ -199,15 +261,18 @@ namespace BunkerBuster
                 ? "Grab the orange intel case and get back to the green extraction pad. Take the corridors, or blow your own shortcut through the concrete."
                 : theme.Brief + (runTotal > 0 ? $"  Run total so far: {runTotal:N0}." : "");
             hud.ShowOverlay(levelNumber == 1 ? "BUNKER BUSTER" : theme.Name, $"LEVEL {levelNumber} / {theme.Name}\n\n{intro}",
-                "Click to deploy\nWASD move · mouse aim · click fire · R reload · Q breach charge · G grenade · C crouch · Esc pause");
+                "Click to deploy\nWASD move · Space jump · mouse aim · click fire · wheel fire mode · R reload · Q breach charge · G grenade · C crouch · Esc pause");
         }
 
         public override void _UnhandledInput(InputEvent e)
         {
+            if (e is InputEventMouseButton wheel && wheel.Pressed && state == State.Playing
+                && (wheel.ButtonIndex == MouseButton.WheelUp || wheel.ButtonIndex == MouseButton.WheelDown))
+                combat.CycleMode(wheel.ButtonIndex == MouseButton.WheelUp ? 1 : -1);
             if (e is InputEventMouseButton mb && mb.Pressed && mb.ButtonIndex == MouseButton.Left)
             {
                 if (state == State.Briefing || state == State.Paused) { Deploy(); GetViewport().SetInputAsHandled(); }
-                else if (state == State.Playing && combat.TriggerArmed) combat.Fire();   // a quick click between frames still fires
+                else if (state == State.Playing) combat.TriggerPulled();   // single shot or start of a burst (auto is held)
                 else if (state == State.Won) { levelNumber++; theme = PickTheme(); NewLevel(); }
                 else if (state == State.Lost) { levelNumber = 1; levelsCleared = 0; runTotal = 0; runTime = 0; theme = Theme.All[0]; NewLevel(); }
             }
@@ -246,6 +311,7 @@ namespace BunkerBuster
         public override void _Process(double delta)
         {
             if (player == null) return;
+            if (bench) { BenchStep(delta); return; }
             double dt = Math.Min(delta, .05);
             if (smoke && smokeStep < 7)
             {
@@ -258,6 +324,7 @@ namespace BunkerBuster
                 runTime += dt;
                 double oldX = player.X, oldZ = player.Z;
                 player.Step(dt);
+                if (player.Landed > 7) sfx.Play("debris_thud", Mathf.Min(1f, (float)player.Landed / 20), .75f);
                 if (player.Travel > 0)
                 {
                     double mx = player.X - oldX, mz = player.Z - oldZ, ml = Math.Sqrt(mx * mx + mz * mz);
@@ -287,7 +354,7 @@ namespace BunkerBuster
             hud.SetLevel(levelNumber, hasIntel ? "02 · RETURN TO EXTRACTION" : "01 · RECOVER INTEL", theme.Name);
             hud.SetVitals(combat.Hp, combat.Hurt);
             string ammo = combat.Reload > 0 ? "RELOAD" : $"{combat.Magazine:00}/{combat.Reserve}";
-            hud.SetKit($"{ammo}  ·  {combat.Charges} CHG  ·  {combat.GrenadeCount} GRN (PRESS G)");
+            hud.SetKit($"{PlayerCombat.ModeNames[(int)combat.Mode]} (WHEEL)\n{ammo}  ·  {combat.Charges} CHG  ·  {combat.GrenadeCount} GRN (PRESS G)");
             hud.SetDebug($"{ScoreCalculator.FormatTime(levelTime)}   ·   {Version}   ·   {Engine.GetFramesPerSecond()} fps{(player.Crouched ? "   ·   CROUCHED" : "")}");
             hud.Status = state == State.Playing ? combat.ChargeStatus : null;
             hud.SetChargeMeter(state == State.Playing ? combat.ChargeProgress : -1);

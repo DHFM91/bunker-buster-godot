@@ -64,19 +64,56 @@ namespace BunkerBuster
 
         // ---------- rifle ----------
 
-        public void Fire()
+        public enum FireMode { Single, Burst, Auto }
+        public static readonly string[] ModeNames = { "SINGLE", "3-RND BURST", "AUTO" };
+        /// <summary>Selected with the mouse wheel.</summary>
+        public FireMode Mode = FireMode.Single;
+        const double BurstGap = .075, BurstRecover = .3, AutoCooldown = .105;
+        int burstLeft, shotsInRow;
+        double sinceShot = 9;
+
+        /// <summary>Mouse wheel: step through single, 3-round burst and automatic.</summary>
+        public void CycleMode(int step)
         {
-            if (!Active || Cooldown > 0 || Reload > 0 || charge != null && charge.Plant > 0) return;
-            if (Magazine == 0) { StartReload(); return; }
-            Magazine--; Cooldown = FireCooldown; Flash = .075;
+            Mode = (FireMode)(((int)Mode + step + 3) % 3);
+            burstLeft = 0;
+            Say?.Invoke("FIRE MODE: " + ModeNames[(int)Mode]);
+            Sound?.Play("reload", .25f, 1.8f);
+        }
+
+        /// <summary>The fire button went down (a click): single fires once, burst starts a 3-round burst.</summary>
+        public void TriggerPulled()
+        {
+            if (!Active || !TriggerArmed) return;
+            if (Mode == FireMode.Burst) { if (burstLeft == 0 && Cooldown <= 0) burstLeft = 3; }
+            else Fire();
+        }
+
+        /// <summary>Fires one round if the gun is ready. Returns true if a round went off.</summary>
+        public bool Fire()
+        {
+            if (!Active || Cooldown > 0 || Reload > 0 || charge != null && charge.Plant > 0) return false;
+            if (Magazine == 0) { burstLeft = 0; StartReload(); return false; }
+            Magazine--; Flash = .075;
+            Cooldown = Mode == FireMode.Auto ? AutoCooldown : Mode == FireMode.Burst ? BurstGap : FireCooldown;
+            shotsInRow = sinceShot < .35 ? shotsInRow + 1 : 0;
+            sinceShot = 0;
             Gun?.OnShot();
             Sound?.Play("rifle_shot", .9f, .95f + (float)rng.NextDouble() * .1f);
             Guards.MakeNoise(Player.X, Player.Z, GuardDirector.NoiseGun, "gun");
             Vector3 dir = Player.LookDirection, eye = Eye;
+            // sustained fire walks off target: a little spread that grows with each shot in a row
+            float spread = Mode == FireMode.Single ? 0 : Mathf.Min(shotsInRow, 6) * (Mode == FireMode.Auto ? .011f : .007f);
+            if (spread > 0)
+            {
+                var right = dir.Cross(Vector3.Up).Normalized();
+                var up = right.Cross(dir).Normalized();
+                dir = (dir + right * (float)((rng.NextDouble() - .5) * 2 * spread) + up * (float)(rng.NextDouble() * spread)).Normalized();
+            }
             var hit = Destruction.Trace(eye, dir, 60);
             var target = Guards.HitScan(eye, dir, hit.T, out _);
-            if (target != null) { Guards.Shoot(target); return; }
-            if (!hit.Hit) return;
+            if (target != null) { Guards.Shoot(target); return true; }
+            if (!hit.Hit) return true;
             Vector3 at = eye + dir * (float)hit.T;
             if (hit.Material == 2 || hit.Material == 7)
             {
@@ -95,6 +132,7 @@ namespace BunkerBuster
                 Fx.Sparks(at - dir * .04f, hit.Material == 8 ? 0 : 5);
                 if (hit.Material != 8) Fx.Dust(at - dir * .04f, .6f, 1, .5f);
             }
+            return true;
         }
 
         public void StartReload()
@@ -357,7 +395,16 @@ namespace BunkerBuster
             // so the click that starts the level never fires a round (a gunshot would bring guards running)
             bool held = Input.IsActionPressed("fire");
             if (!held) TriggerArmed = true;
-            if (Active && TriggerArmed && held && Input.MouseMode == Input.MouseModeEnum.Captured) Fire();
+            sinceShot += dt;
+            if (Active && TriggerArmed)
+            {
+                if (Mode == FireMode.Auto && held) Fire();
+                if (Mode == FireMode.Burst && burstLeft > 0 && Cooldown <= 0)
+                {
+                    if (Fire()) burstLeft--; else if (Reload > 0 || Magazine == 0) burstLeft = 0;
+                    if (burstLeft == 0) Cooldown = BurstRecover;
+                }
+            }
             StepCharge(dt);
             if (!Active) return;
             StepGrenades(dt);
