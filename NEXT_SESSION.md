@@ -17,6 +17,7 @@ Start here. Current version: **g5**. Browser reference game: DHFM91/bunker-buste
 ## Mac build
 - `tools\export-mac.bat` exports, then `tools\package-mac.bat` makes `builds\BunkerBuster-mac-portable.zip` (launcher `tools/mac/Play Bunker Buster.command` + readme + `game/Bunker Buster.app`). Send it with the version in the name, e.g. `BunkerBuster-g5-mac-portable.zip`.
 - Nobody here has a Mac; a friend of David's tests. g5 as a bare `.app` gave him "The application can't be opened" even after Open Anyway; the portable folder (his suggestion) is the fix being tried. Godot's own signature on the export verifies (page hashes, sealed resources, entitlements), so suspects were quarantine/translocation, the execute bit, or the earlier Linux re-zip.
+- **Open issue (start here):** the portable build still fails on the friend's Mac (Apple Silicon, macOS 27.0.1). The launcher runs and the signature verifies, but the game is killed at once with exit code 137 (SIGKILL). Work through `MAC_FIX_PLAN.md` step by step, beginning with the one-click `Mac test.command` report.
 - The launcher's log (`bunker-buster-log.txt` in the game folder) has macOS version, CPU, signature check and the game's own output: ask for it whenever the Mac build fails.
 
 ## Status
