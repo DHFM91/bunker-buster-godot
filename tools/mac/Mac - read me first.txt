@@ -1,0 +1,42 @@
+BUNKER BUSTER for Mac
+=====================
+
+Works on Intel Macs (macOS 11 or newer) and Apple Silicon Macs (macOS 13 or newer).
+
+The game isn't from the App Store and isn't signed with an Apple developer
+certificate, so macOS asks you to approve it once. You approve a small
+launcher, "Play Bunker Buster.command"; it then sets up the game for you.
+
+
+FIRST TIME
+----------
+1. Unzip the download. You get a folder called "Bunker Buster".
+   Put the whole folder wherever you like (Applications, Desktop, Documents).
+   Keep everything inside it together.
+
+2. Open the folder and double-click "Play Bunker Buster.command".
+   macOS says it can't verify the file. Click "Done" (not "Move to Trash").
+
+3. Open System Settings > Privacy & Security and scroll down to Security.
+   Next to "Play Bunker Buster.command was blocked..." click "Open Anyway",
+   then confirm with your password or Touch ID.
+   (On macOS 14 or older you can instead right-click the file, choose Open,
+   then click Open.)
+
+4. A Terminal window opens and the game starts. The first launch takes a few
+   extra seconds while it prepares the game.
+   If macOS asks whether Terminal may access a folder (Desktop, Downloads,
+   Documents), click Allow.
+
+Leave the Terminal window open while you play. Closing it quits the game.
+
+
+AFTER THAT
+----------
+Just double-click "Play Bunker Buster.command".
+
+
+IF SOMETHING GOES WRONG
+-----------------------
+The launcher writes a file called "bunker-buster-log.txt" in the Bunker Buster
+folder. Send that file to David; it says what happened.

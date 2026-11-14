@@ -16,7 +16,16 @@ Current version: **g5** (Godot builds are numbered g1, g2, … so they don't cla
 ## Make a shareable build
 Double-click `tools\export.bat`. Result: `builds\BunkerBuster-windows.zip` (unzip, run `BunkerBuster.exe`; no install needed).
 
-For Macs, double-click `tools\export-mac.bat` (run `export.bat` once first so the export templates are installed). Result: `builds\BunkerBuster-mac.zip`, one `Bunker Buster.app` for Intel and Apple Silicon. It is ad-hoc signed but not notarized, so on first launch players use System Settings > Privacy & Security > Open Anyway (or `xattr -dr com.apple.quarantine` if macOS calls it damaged).
+For Macs, double-click `tools\export-mac.bat` (run `export.bat` once first so the export templates are installed). It exports one `Bunker Buster.app` for Intel and Apple Silicon (`builds\BunkerBuster-mac.zip`), then `tools\package-mac.bat` wraps it into the download for players, **`builds\BunkerBuster-mac-portable.zip`**:
+
+```
+Bunker Buster/
+  Play Bunker Buster.command   launcher (tools/mac/)
+  Mac - read me first.txt      player instructions (tools/mac/)
+  game/Bunker Buster.app
+```
+
+The app is ad-hoc signed but not notarized. Players approve the launcher once (System Settings > Privacy & Security > Open Anyway); it then clears the download quarantine from the folder, makes sure the game is executable, re-signs it on the Mac if the signature doesn't verify there, starts the game and writes `bunker-buster-log.txt` next to itself. The packer writes Unix permissions into the zip (755 for the launcher and the executables) so they survive unzipping on a Mac. Double-click `tools\package-mac.bat` on its own to repackage an existing Mac export.
 
 ## Check it
 Double-click `tools\check.bat`. It compiles the C#, imports the assets and runs the self-tests (the C# map and level

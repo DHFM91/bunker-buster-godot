@@ -1,0 +1,2 @@
+# The Mac launcher must keep Unix line endings and stay executable.
+*.command text eol=lf

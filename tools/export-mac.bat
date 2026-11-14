@@ -1,6 +1,7 @@
 @echo off
 rem Bunker Buster (Godot): build the macOS release (one app for Intel and Apple Silicon Macs).
-rem Result: builds\BunkerBuster-mac.zip containing BunkerBuster.app, plus "Mac - read me.txt".
+rem Result: builds\BunkerBuster-mac.zip (Godot's raw export), then tools\package-mac.bat turns it into
+rem builds\BunkerBuster-mac-portable.zip: the download for players (launcher + readme + game).
 rem Log: logs\export-mac.txt
 
 setlocal
@@ -33,6 +34,7 @@ if not exist builds\BunkerBuster-mac.zip (
 dir builds >> %LOG% 2>&1
 echo EXPORT OK: builds\BunkerBuster-mac.zip >> %LOG%
 type %LOG%
+call "%~dp0package-mac.bat"
 
 :end
 endlocal
